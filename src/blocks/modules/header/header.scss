@@ -1,0 +1,289 @@
+@import "main-bx";
+
+@include animationsAll;
+
+.header {
+    a {
+        color: $white-color;
+    }
+
+    &__top {
+        font-size: 16px;
+        .container {
+            @include flex;
+        }
+        background-color: $black-color;
+        &--left {
+            position: relative;
+            z-index: 1;
+            padding: 15px 0;
+            @include flex;
+            align-items: center;
+            padding-right: 44px;
+            border-right: 9px solid $dark_red_color;
+            &::before {
+                content: "";
+                background-color: $orange-color;
+                position: absolute;
+                z-index: -1;
+                top: 0;
+                right: 0;
+                width: 1920px;
+                height: 100%;
+            }
+            li {
+                &:first-child {
+                    margin-right: 36px;
+                }
+                a {
+                    display: flex;
+                    align-items: center;
+                    span {
+                        display: table;
+                    }
+                }
+                &:hover {
+                    a {
+                        text-decoration: underline;
+                    }
+                }
+            }
+            svg {
+                margin-right: 11px;
+            }
+        }
+        &--right {
+            padding: 15px 0;
+            @include flex;
+            margin-left: auto;
+            li {
+                margin: 0 25px;
+                position: relative;
+                a {
+                    display: flex;
+                    align-items: center;
+                    @include transition;
+                }
+                &::after {
+                    content: "";
+                    height: 22px;
+                    width: 1px;
+                    background-color: $white-color;
+                    position: absolute;
+                    right: -25px;
+                    top: 0;
+                }
+                svg {
+                    margin-right: 12px;
+                }
+                &:hover {
+                    a {
+                        color: $orange-color;
+                    }
+                    svg {
+                        path {
+                            fill: $orange-color;
+                        }
+                    }
+                }
+                &:last-child {
+                    margin-right: 0;
+                    svg {
+                        margin-right: 0;
+                    }
+                    &::after {
+                        content: none;
+                    }
+                }
+            }
+        }
+    }
+    &__center {
+        @include flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 45px;
+        padding-bottom: 50px;
+        a {
+            color: $black-color;
+        }
+        &-logo {
+            position: relative;
+            .img {
+                width: 277px;
+            }
+            .timer {
+                position: absolute;
+                right: -25px;
+                top: -28px;
+            }
+        }
+        &-rigth {
+            @include flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        &-search {
+            width: 100%;
+            max-width: 485px;
+            position: relative;
+            input {
+                width: 100%;
+                display: block;
+                outline: none;
+                border: 1px solid $black-color;
+                padding: 15px 25px;
+                background-color: transparent;
+                color: $black-color;
+                font-size: 16px;
+                &::placeholder {
+                    font-family: inherit;
+                }
+            }
+            button {
+                position: absolute;
+                right: 0;
+                top: 0;
+                background-color: transparent;
+                cursor: pointer;
+                height: 100%;
+                width: 50px;
+            }
+        }
+        &-cabinet,
+        &-catr {
+            & > a {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                max-width: 85px;
+                text-align: center;
+                span {
+                    @include transition;
+                }
+
+                &:hover {
+                    span {
+                        color: $orange-color;
+                    }
+                    svg {
+                        path {
+                            fill: $orange-color;
+                        }
+                    }
+                }
+            }
+            svg {
+                margin-bottom: 10px;
+            }
+        }
+        &-cabinet {
+            margin-right: 60px;
+        }
+        &-catr {
+            position: relative;
+            .quantity {
+                position: absolute;
+                right: 0;
+                top: -5px;
+                background-color: $orange-color;
+                border-radius: 50%;
+                font-size: 16px;
+                color: $white-color;
+                width: 21px;
+                height: 21px;
+                text-align: center;
+                padding: 1px 0 0;
+            }
+        }
+    }
+    &__bottom {
+        background-color: $black-color;
+        position: relative;
+        &::after {
+            content: "";
+            width: 100%;
+            height: 6px;
+            background-color: $orange-color;
+            position: absolute;
+            top: -10px;
+            left: 0;
+        }
+        &-menu {
+            a {
+                display: flex;
+                align-items: center;
+                @include transition;
+                &:hover {
+                    color: $orange-color;
+                    svg {
+                        path {
+                            fill: $orange-color;
+                        }
+                    }
+                }
+            }
+            .menu {
+                @include flex;
+                align-items: center;
+                justify-content: space-between;
+                li.menu__item {
+                    position: relative;
+                    padding: 24px 0;
+                    @include transition;
+                    font-size: 22px;
+                    span.icon {
+                        display: flex;
+                        align-items: center;
+                        margin-right: 13px;
+                    }
+                    &:last-child {
+                        span.icon {
+                            margin-right: 0;
+                            margin-left: 13px;
+                        }
+                        & > a {
+                            display: flex;
+                            flex-direction: row-reverse;
+                        }
+                        .sub__menu {
+                            left: unset;
+                            right: 0;
+                        }
+                    }
+                    &:hover {
+                        & > a {
+                            color: $orange-color;
+                            svg {
+                                path {
+                                    fill: $orange-color;
+                                }
+                            }
+                        }
+                        .sub__menu {
+                            visibility: visible;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+            .sub__menu {
+                visibility: hidden;
+                opacity: 0;
+                position: absolute;
+                left: 0;
+                top: 75px;
+                background-color: $black-color;
+                width: 235px;
+                padding: 10px 0 20px 30px;
+                @include transition;
+                li.sub__menu-item {
+                    padding: 11px 0;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}

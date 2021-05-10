@@ -1,0 +1,73 @@
+.cart_totals h2 {
+  background-color: transparent;
+  font-size: 2rem;
+  color: #9d9d9d;
+  padding: 0;
+  margin: 0
+}
+.coupon {
+  display: flex;
+  flex-wrap: wrap
+}
+.coupon input {
+  width: 100%!important;
+  max-width: 180px!important;
+  margin: 0 20px 0 0!important;
+  height: 35px!important
+}
+.coupon button {
+  background-color: #004f9e!important;
+  color: #fff!important;
+  height: 35px!important;
+  transition: .3s ease-in-out
+}
+.coupon button:hover {
+  background-color: #004387;
+  color: #fff
+}
+.checkout_coupon input {
+  height: 35px!important
+}
+.checkout_coupon button {
+  background-color: #004f9e!important;
+  color: #fff!important;
+  height: 35px!important;
+  transition: .3s ease-in-out
+}
+.checkout_coupon button:hover {
+  background-color: #004387;
+  color: #fff
+}
+.checkout-button,
+.place-order button {
+  background-color: #004f9e!important;
+  transition: .3s ease-in-out
+}
+.checkout-button:hover,
+.place-order button:hover {
+  background-color: #004387!important
+}
+.woocommerce-cart-form {
+  margin-top: 1.85em
+}
+.woocommerce-cart-form img {
+  max-width: 320px
+}
+.woocommerce-checkout .shop_table {
+  background-color: transparent!important
+}
+@media screen and (max-width:767px) {
+  .coupon input {
+    max-width: 100%!important;
+    margin: 0 0 20px!important
+  }
+  .coupon button {
+    width: 100%!important;
+    margin: 0 0 20px!important
+  }
+  .checkout-button,
+  .place-order button {
+    width: 100%;
+    text-align: center
+  }
+}

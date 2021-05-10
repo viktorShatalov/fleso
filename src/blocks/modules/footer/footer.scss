@@ -1,0 +1,62 @@
+@import "main-bx";
+
+
+
+// contact form
+.wpcf7-not-valid-tip {
+    font-size: 0.85em;
+    white-space: nowrap;
+    position: absolute;
+    left: 10px;
+    top: -2px;
+}
+.wpcf7 .ajax-loader {
+    position: absolute;
+}
+.wpcf7 form .wpcf7-response-output {
+    margin: 10px auto;
+    padding: 0.2em 0.2em;
+    border: 0px solid black;
+    font-size: 0.85em;
+    color: $black-color;
+}
+div.wpcf7 .ajax-loader {
+    display: none;
+}
+#footer_checker {
+    margin-bottom: 20px;
+    .checker__checker {
+        max-width: 100px;
+        display: inline;
+    }
+    .button_checker {
+        background-color: $blue-color;
+        color: $white-color;
+        cursor: pointer;
+        @include transition;
+        margin: 0 0 1rem 0;
+        padding: 0.85em 1em;
+        border: 1px solid transparent;
+        font-size: 0.9rem;
+        line-height: 1;
+        text-align: center;
+        border-radius: 2px;
+        &:hover {
+            background-color: $blue_hover-color;
+        }
+    }
+    .wpcf7-not-valid-tip {
+        display: none;
+    }
+}
+div.wpcf7 .wpcf7-submit:disabled {
+    cursor: not-allowed !important;
+}
+.wpcf7 form.invalid .wpcf7-response-output {
+    border-width: 1px;
+    display: table;
+}
+.wpcf7 form.sent .wpcf7-response-output {
+    border-width: 1px;
+    display: table;
+}

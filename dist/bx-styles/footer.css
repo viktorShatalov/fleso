@@ -1,0 +1,54 @@
+.wpcf7-not-valid-tip {
+  font-size: .85em;
+  white-space: nowrap;
+  position: absolute;
+  left: 10px;
+  top: -2px
+}
+.wpcf7 .ajax-loader {
+  position: absolute
+}
+.wpcf7 form .wpcf7-response-output {
+  margin: 10px auto;
+  padding: .2em;
+  border: 0 solid #000;
+  font-size: .85em;
+  color: #141414
+}
+div.wpcf7 .ajax-loader {
+  display: none
+}
+#footer_checker {
+  margin-bottom: 20px
+}
+#footer_checker .checker__checker {
+  max-width: 100px;
+  display: inline
+}
+#footer_checker .button_checker {
+  background-color: #004f9e;
+  color: #fff;
+  cursor: pointer;
+  transition: .3s ease-in-out;
+  margin: 0 0 1rem;
+  padding: .85em 1em;
+  border: 1px solid transparent;
+  font-size: .9rem;
+  line-height: 1;
+  text-align: center;
+  border-radius: 2px
+}
+#footer_checker .button_checker:hover {
+  background-color: #004387
+}
+#footer_checker .wpcf7-not-valid-tip {
+  display: none
+}
+div.wpcf7 .wpcf7-submit:disabled {
+  cursor: not-allowed!important
+}
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.sent .wpcf7-response-output {
+  border-width: 1px;
+  display: table
+}

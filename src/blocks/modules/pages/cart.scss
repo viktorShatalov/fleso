@@ -1,0 +1,79 @@
+@import "main-bx";
+
+.cart_totals {
+    h2 {
+        background-color: transparent;
+        font-size: 2rem;
+        color: $grey-color;
+        padding: 0;
+        margin: 0;
+    }
+}
+.coupon {
+    @include flex;
+    input {
+        width: 100% !important;
+        max-width: 180px !important;
+        margin: 0 20px 0 0 !important;
+        height: 35px !important;
+    }
+    button {
+        background-color: $blue-color !important;
+        color: $white-color !important;
+        height: 35px !important;
+        @include transition;
+        &:hover {
+            background-color: $blue_hover-color;
+            color: $white-color;
+        }
+    }
+    @include to($mobile) {
+        input {
+            max-width: 100% !important;
+            margin: 0 0 20px !important;
+        }
+        button {
+            width: 100% !important;
+            margin: 0 0 20px !important;
+        }
+    }
+}
+
+.checkout_coupon {
+    input {
+        height: 35px !important;
+    }
+    button {
+        background-color: $blue-color !important;
+        color: $white-color !important;
+        height: 35px !important;
+        @include transition;
+        &:hover {
+            background-color: $blue_hover-color;
+            color: $white-color;
+        }
+    }
+}
+.checkout-button,
+.place-order button {
+    background-color: $blue-color !important;
+    @include transition;
+    &:hover {
+        background-color: $blue_hover-color !important;
+    }
+    @include to($mobile) {
+        width: 100%;
+        text-align: center;
+    }
+}
+.woocommerce-cart-form {
+    margin-top: 1.85em;
+    img {
+        max-width: 320px;
+    }
+}
+.woocommerce-checkout {
+    .shop_table {
+        background-color: transparent !important;
+    }
+}
