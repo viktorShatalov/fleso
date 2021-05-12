@@ -1,6 +1,7 @@
 // load script
-"use script";
+
 jQuery(document).ready(function ($) {
+    "use script";
     // header__burger
     $(".header__burger").on("click", function () {
         $(this).toggleClass("active")
@@ -8,14 +9,21 @@ jQuery(document).ready(function ($) {
         $("body").toggleClass("overflow")
     })
 
-    // page__phone 
-    $(".page__phone").on("mouseenter", function () {
-        $(this).addClass("active"),
-            $(this).on("mouseleave", function () {
-                $(this).removeClass("active")
-            })
-    })
 
+    $(".slider-js").slick({
+        slidesToShow: 3,
+        slidesToScroll: 2,
+        dots: false,
+        infinite: false,
+        arrow: true,
+        prevArrow: `<button type="button" class="slick-prev"><svg xmlns="http://www.w3.org/2000/svg" width="29.448" height="14.474" viewBox="0 0 29.448 14.474">
+        <path id="long-arrow-alt-right" d="M8.812,14.867H28.659a.789.789,0,0,1,.789.789v3.681a.789.789,0,0,1-.789.789H8.812v3.028a1.578,1.578,0,0,1-2.693,1.115L.462,18.613a1.577,1.577,0,0,1,0-2.231l5.657-5.657a1.578,1.578,0,0,1,2.693,1.115Z" transform="translate(0 -10.26)" fill="#ebe9e0"/>
+      </svg></button>`,
+      nextArrow:`<button type="button" class="slick-next"><svg xmlns="http://www.w3.org/2000/svg" width="29.448" height="14.474" viewBox="0 0 29.448 14.474">
+      <path id="long-arrow-alt-right" d="M20.636,14.867H.789A.789.789,0,0,0,0,15.656v3.681a.789.789,0,0,0,.789.789H20.636v3.028a1.578,1.578,0,0,0,2.693,1.115l5.657-5.657a1.577,1.577,0,0,0,0-2.231l-5.657-5.657a1.578,1.578,0,0,0-2.693,1.115Z" transform="translate(0 -10.26)" fill="#ebe9e0"/>
+    </svg></button>`,
+    
+    })
 
     // mobile settings
     $(window).resize(function () {
@@ -53,37 +61,5 @@ jQuery(document).ready(function ($) {
         }
     }
 
-    // Оптимизация Скриптов для googlepagespeed
-    window.addEventListener('scroll', userEventsInit);
-    window.addEventListener('mousemove', userEventsInit);
-    window.addEventListener('touchstart', userEventsInit);
 
-    function userEventsInit() {
-        window.removeEventListener('scroll', userEventsInit);
-        window.removeEventListener('mousemove', userEventsInit)
-        window.removeEventListener('touchstart', userEventsInit)
-
-        let url = window.location.origin
-
-        // loadScript(`${url}/wp-content/themes/mkey/assets/libs/jquery.min.js`, "jquery", function () { })
-
-        // загрузка скрипта
-        function loadScript(src, srcId, callback) {
-            let script = document.createElement('script');
-            script.src = src;
-            script.type = 'text/javascript';
-            script.id = srcId
-            script.onload = callback;
-            document.body.append(script);
-        }
-    }
-
-    $(".woocommerce-product-gallery__trigger").html(`<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>`)
-
-    
-
-    // tx-cart__totop
-    $(".tx-cart__totop").on("click", function () {
-        $("html, body").animate({ scrollTop: 0 }, 500)
-    })
 })

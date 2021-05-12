@@ -265,6 +265,7 @@
                         .sub__menu {
                             visibility: visible;
                             opacity: 1;
+                            transform: translateY(0px);
                         }
                     }
                 }
@@ -279,6 +280,8 @@
                 width: 235px;
                 padding: 10px 0 20px 30px;
                 @include transition;
+                z-index: 1;
+                transform: translateY(10px);
                 li.sub__menu-item {
                     padding: 11px 0;
                     font-size: 18px;

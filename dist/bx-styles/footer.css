@@ -1,3 +1,137 @@
+.footer {
+  background-color: #141414;
+  position: relative;
+  color: #fff
+}
+.footer::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #e27437;
+  position: absolute;
+  top: 0;
+  left: -50%;
+  z-index: 0
+}
+.footer > .container {
+  padding-bottom: 40px;
+  padding-top: 100px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 18px
+}
+.footer > .container::after {
+  content: "";
+  width: 20px;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  background-color: #742830;
+  z-index: 0
+}
+.footer > .container h3 {
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  font-size: 18px
+}
+.footer > .container p {
+  line-height: 1.75
+}
+.footer__left {
+  width: 100%;
+  max-width: 530px
+}
+.footer__right {
+  width: 100%;
+  max-width: 530px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between
+}
+.footer__right-adress,
+.footer__right-contacts {
+  flex: 0 0 50%
+}
+.footer__right-pay_method {
+  margin-top: 20px
+}
+.footer__right-pay_method p {
+  text-transform: uppercase;
+  font-family: RobotoCondensed-Bold;
+  margin-bottom: 10px
+}
+.footer__right-pay_method ul {
+  display: flex;
+  flex-wrap: wrap
+}
+.footer__logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -50px;
+  background-color: #fff;
+  padding: 20px 30px;
+  z-index: 1
+}
+.footer__signature {
+  background-color: #fff;
+  color: #141414;
+  font-size: 12px;
+  padding: 11px 0 8px;
+  position: relative;
+  z-index: 1
+}
+.footer__signature .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+.footer__signature span span {
+  color: #742830
+}
+.footer__signature a {
+  color: #141414
+}
+.footer__signature ul {
+  display: flex
+}
+.footer__signature li {
+  margin-right: 20px;
+  position: relative
+}
+.footer__signature li::after {
+  content: "";
+  height: 100%;
+  width: 1px;
+  background-color: #742830;
+  position: absolute;
+  display: block;
+  right: -10px;
+  top: 0
+}
+.footer__signature li:last-child {
+  margin-right: 0
+}
+.footer__signature li:last-child::after {
+  content: none
+}
+.footer__signature li:hover a {
+  color: #742830;
+  text-decoration: underline
+}
+.footer__social {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 40px
+}
+.footer__social:hover svg path {
+  fill: #4267b2
+}
 .wpcf7-not-valid-tip {
   font-size: .85em;
   white-space: nowrap;
@@ -51,4 +185,81 @@ div.wpcf7 .wpcf7-submit:disabled {
 .wpcf7 form.sent .wpcf7-response-output {
   border-width: 1px;
   display: table
+}
+.contact__forms_container {
+  width: 100%
+}
+.coupon input.input-text,
+.form__control {
+  display: block;
+  width: 100%;
+  height: 2.4375rem;
+  margin: 0 0 1rem;
+  padding: .5rem;
+  border: 1px solid #9d9d9d;
+  border-radius: 2px;
+  background-color: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #141414;
+  transition: .3s ease-in-out
+}
+.coupon input.input-text::-moz-placeholder,
+.form__control::-moz-placeholder {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400
+}
+.coupon input.input-text:-ms-input-placeholder,
+.form__control:-ms-input-placeholder {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400
+}
+.coupon input.input-text::placeholder,
+.form__control::placeholder {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400
+}
+.coupon input.input-text:focus,
+.form__control:focus {
+  outline: 0;
+  border: 1px solid #5d5d5d;
+  background-color: #fefefe;
+  box-shadow: 0 0 5px #818181
+}
+.coupon input.input-text.textarea,
+.form__control.textarea {
+  resize: vertical;
+  width: 100%;
+  height: 50px
+}
+.form__control_btn {
+  display: block;
+  margin: 0 0 1rem;
+  padding: .85em 1em;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  font-size: .9rem;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+  background-color: #004f9e;
+  color: #fff;
+  transition: .3s ease-in-out
+}
+.form__control_btn:hover {
+  background-color: #004387
+}
+nav.woocommerce-breadcrumb {
+  margin: 1.5em 0
+}
+nav.woocommerce-breadcrumb a {
+  color: #004f9e;
+  transition: .3s ease-in-out
+}
+nav.woocommerce-breadcrumb a:hover {
+  color: #004387
 }
