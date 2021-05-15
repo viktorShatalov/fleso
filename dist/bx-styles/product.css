@@ -166,7 +166,7 @@ div.product a:hover {
   flex-direction: column;
   align-items: center;
   color: #fff;
-  background-color: #76bf00;
+  background-color: #9cd032;
   font-size: 1.6em;
   line-height: 1;
   font-weight: 700;
@@ -176,7 +176,7 @@ div.product a:hover {
 }
 .summary.entry-summary .legal-price-info {
   color: #fff;
-  background-color: #76bf00;
+  background-color: #9cd032;
   width: 60%;
   font-size: 1em;
   font-weight: 400;
@@ -202,7 +202,7 @@ div.product a:hover {
 }
 .summary.entry-summary .woocommerce-product-details__short-description ul li:before {
   content: "\EA05";
-  color: #76bf00;
+  color: #9cd032;
   font-size: 1.5em;
   margin-top: -.0625rem;
   padding-right: .625rem;
@@ -366,13 +366,13 @@ div.product a:hover {
   margin-bottom: 0
 }
 .woocommerce-product-gallery .product-bottom-cont .text-green {
-  color: #76bf00
+  color: #9cd032
 }
 .woocommerce-product-gallery .product-bottom-cont .text-orange {
   color: #e27437
 }
 .woocommerce-product-gallery .product-bottom-cont .icon {
-  color: #76bf00;
+  color: #9cd032;
   font-size: 4.5em;
   transform: scalex(-1);
   margin-left: 20px

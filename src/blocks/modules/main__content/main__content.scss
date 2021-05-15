@@ -57,3 +57,87 @@
         margin-right: 8px;
     }
 }
+.main__content-top--menu_category {
+    border: 1px solid $grey_border-color;
+    position: relative;
+    padding: 28px;
+    height: fit-content;
+    .head {
+        font-family: $font-bold;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+    }
+    li {
+        font-size: 18px;
+        a {
+            display: flex;
+            align-items: center;
+        }
+    }
+    ul.category {
+        li {
+            margin: 17px 0;
+            position: relative;
+            span {
+                &:nth-child(2) {
+                    margin-left: 9px;
+                    display: inline-block;
+                }
+                &.icon {
+                    width: 34px;
+                }
+            }
+        }
+    }
+    ul.sub-category {
+        padding-left: 45px;
+        &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            background-color: $black-color;
+            width: 5px;
+            height: 1px;
+            z-index: 1;
+        }
+        li {
+            margin: 8px 0;
+            display: none;
+        }
+    }
+}
+.main__slider {
+    padding: 30px 0;
+    &-item {
+        position: relative;
+        &--top {
+            position: absolute;
+            left: 30px;
+            top: -30px;
+            background-color: $orange-color;
+            color: $white-color;
+            padding: 16px 28px;
+            z-index: 1;
+            width: 100%;
+            max-width: 460px;
+            p {
+                font-size: 30px;
+                font-family: $font-bold;
+            }
+            span {
+                font-size: 47px;
+            }
+        }
+        &--bottom {
+            position: absolute;
+            bottom: -30px;
+            left: 17%;
+            background-color: $green-color;
+            color: $white-color;
+            padding: 17px 22px;
+            width: 100%;
+            max-width: 475px;
+        }
+    }
+}

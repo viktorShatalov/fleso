@@ -84,6 +84,7 @@
   right: -25px;
   top: 0
 }
+.header__top--right li img,
 .header__top--right li svg {
   margin-right: 12px
 }
