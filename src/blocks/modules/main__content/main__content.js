@@ -75,11 +75,10 @@ jQuery(document).ready(function ($) {
         }
     }
 
-
-    $("ul.sub-category").attr("data-content", "").on("click", function () {
+    // first page category
+    $("ul.sub-category.js-el").attr("data-content", "").on("click", function () {
         $(this).children("li").toggle("show")
         $(this).toggleClass("active")
     })
-
 
 })

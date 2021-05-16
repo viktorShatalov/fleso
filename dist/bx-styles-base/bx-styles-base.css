@@ -17,10 +17,9 @@
   font-display: swap
 }
 @font-face {
-  font-family: RobotoCondensed-Light,sans-serif;
-  src: url(../fonts/Roboto_Condensed/RobotoCondensed-Light.ttf) format("ttf");
-  src: url(../fonts/Roboto_Condensed/RobotoCondensed-Light.woff) format("woff");
-  src: url(../fonts/Roboto_Condensed/RobotoCondensed-Light.woff2) format("woff2");
+  font-family: Condensed-Light;
+  src: url(../fonts/Roboto_Condensed/Open_Sans_Condensed.ttf) format("ttf");
+  font-weight: lighter;
   font-style: normal;
   font-display: swap
 }

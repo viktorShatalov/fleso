@@ -184,9 +184,10 @@ jQuery(document).ready(function ($) {
 
       imagesWebp[_i].style.backgroundImage = 'url(' + imageWebp + ')';
     }
-  }
+  } // first page category
 
-  $("ul.sub-category").attr("data-content", "").on("click", function () {
+
+  $("ul.sub-category.js-el").attr("data-content", "").on("click", function () {
     $(this).children("li").toggle("show");
     $(this).toggleClass("active");
   });
