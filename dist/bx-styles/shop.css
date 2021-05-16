@@ -64,78 +64,30 @@
   text-align: center;
   line-height: 35px
 }
-.main__content-top {
+.main__content {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 290px 3fr;
-  grid-template-columns: 290px 3fr;
-  grid-gap: 30px
+  -ms-grid-rows: auto 0 auto 0 auto;
+  grid-template-areas: "sidebar slider" "sidebar sort" "sidebar products";
+  grid-gap: 0 30px;
+  -ms-grid-columns: 290px 30px 3fr;
+  grid-template-columns: 290px 3fr
 }
-.main__content-top--container {
+.main__content-top {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
   margin-bottom: 30px;
   margin-top: 28px;
   max-width: 875px;
-  width: 100%
+  width: 100%;
+  grid-area: slider
 }
-.main__content-top--container > p {
+.main__content-top > p {
   font-family: RobotoCondensed-Bold;
   display: inline-block;
   margin-bottom: 22px;
   padding-left: 20px;
   text-transform: uppercase
-}
-.main__content-top--pseudo {
-  width: 100%;
-  max-width: 275px
-}
-.main__content .woof_sid_auto_shortcode,
-.main__content-left {
-  border: 1px solid #ebe9e0;
-  position: relative;
-  top: -690px;
-  padding: 28px!important;
-  text-transform: uppercase;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content
-}
-.main__content-right .product__items {
-  margin-bottom: 50px
-}
-.main__content-woocomerce {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 290px 3fr;
-  grid-template-columns: 290px 3fr;
-  grid-gap: 30px;
-  position: relative
-}
-.main .product__items {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 30px 0
-}
-.main .product__items.slider-js {
-  width: 100%;
-  display: block
-}
-.main .product__items.slider-js .slick-slide {
-  padding: 0 12.725px
-}
-.main .product__items.slider-js .slick-next,
-.main .product__items.slider-js .slick-prev {
-  right: 23px;
-  left: unset;
-  top: -30px
-}
-.main .product__items.slider-js .slick-next:before,
-.main .product__items.slider-js .slick-prev:before {
-  content: none
-}
-.main .product__items.slider-js .slick-prev {
-  right: 80px
 }
 .main__bottom-description {
   display: -ms-grid;
@@ -235,10 +187,55 @@
 .main__bottom-img .right .button:hover svg path {
   fill: #e27437
 }
+.main .product__items {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 30px 0
+}
+.main .product__items.slider-js {
+  width: 100%;
+  display: block
+}
+.main .product__items.slider-js .slick-slide {
+  padding: 0 12.725px
+}
+.main .product__items.slider-js .slick-next,
+.main .product__items.slider-js .slick-prev {
+  right: 23px;
+  left: unset;
+  top: -30px
+}
+.main .product__items.slider-js .slick-next:before,
+.main .product__items.slider-js .slick-prev:before {
+  content: none
+}
+.main .product__items.slider-js .slick-prev {
+  right: 80px
+}
+.main .woof_sid_auto_shortcode {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 5;
+  -ms-grid-column: 1;
+  border: 1px solid #ebe9e0;
+  padding: 28px!important;
+  grid-area: sidebar;
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  border-radius: 0
+}
+.main .woof_shortcode_output {
+  -ms-grid-row: 5;
+  -ms-grid-column: 3;
+  grid-area: products
+}
 .product__item {
   border: 1px solid #ebe9e0;
   padding-bottom: 30px!important;
-  max-width: 267px;
+  max-width: 266px;
   margin: 0 auto!important;
   width: 100%!important;
   position: relative
@@ -246,7 +243,8 @@
 .product__item-img {
   position: relative;
   margin-bottom: 19px;
-  border-bottom: 1px solid #ebe9e0
+  border-bottom: 1px solid #ebe9e0;
+  transition: .3s ease-in-out
 }
 .product__item-img img {
   width: 100%;
@@ -264,12 +262,24 @@
   text-align: center;
   padding: 7px 16px
 }
+.product__item-img .discount {
+  right: unset;
+  left: 0
+}
+.product__item-img:hover .tinv-wraper.tinv-wishlist {
+  opacity: 1;
+  visibility: visible
+}
 .product__item-name {
   font-size: 18px;
   padding: 0 24px;
   margin-bottom: 18px;
   height: 50px;
-  overflow: hidden
+  overflow: hidden;
+  transition: .3s ease-in-out
+}
+.product__item-name:hover {
+  color: #e27437
 }
 .product__item-name h3 {
   font-weight: 400
@@ -395,18 +405,19 @@
 .product__item-btn a:hover svg path {
   fill: #e27437
 }
-.product__item:hover .tinv-wraper.tinv-wishlist {
-  opacity: 1;
-  visibility: visible
-}
 .sort__form {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
   margin-bottom: 30px;
-  padding-right: 14px
+  padding-right: 14px;
+  grid-area: sort
 }
 .sort__form form {
   display: block;
   width: 100%;
-  max-width: 180px;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
   margin-left: auto
 }
 .sort__form select {
@@ -433,9 +444,6 @@
 }
 .pagination li {
   margin: 0 10px
-}
-.pagination li.active a {
-  color: #e27437
 }
 .woof_checkbox_term {
   max-width: 10px
@@ -490,9 +498,6 @@
 .woof_checkbox_label {
   font-size: 18px!important
 }
-.woof_sid_auto_shortcode {
-  border-radius: 0
-}
 .woof_submit_search_form_container {
   margin-bottom: 0
 }
@@ -526,6 +531,13 @@
   color: #e27437;
   font-weight: 700
 }
+.woocommerce nav.woocommerce-pagination ul li a.next,
+.woocommerce nav.woocommerce-pagination ul li a.prev,
+.woocommerce nav.woocommerce-pagination ul li span.next,
+.woocommerce nav.woocommerce-pagination ul li span.prev {
+  font-size: 10px;
+  margin: 5px 0 0
+}
 .tinv-wraper.tinv-wishlist {
   position: absolute;
   left: 0;
@@ -549,33 +561,6 @@
   text-align: center
 }
 @media screen and (max-width:767px) {
-  .main__content-top {
-    -ms-grid-columns: 1fr;
-    grid-template-columns: 1fr
-  }
-  .main__content-top > span {
-    display: none
-  }
-  .main__content-top--container {
-    max-width: 320px;
-    margin-left: auto;
-    margin-right: auto
-  }
-  .main__content .woof_sid_auto_shortcode,
-  .main__content-left {
-    top: 0
-  }
-  .main__content-woocomerce {
-    -ms-grid-columns: 1fr;
-    grid-template-columns: 1fr
-  }
-  .main .product__items {
-    -ms-grid-columns: 1fr 1fr;
-    grid-template-columns: 1fr 1fr
-  }
-  .main .product__items.slider-js .slick-slide {
-    padding: 0 5px
-  }
   .main__bottom-img {
     flex-wrap: wrap
   }
@@ -587,6 +572,13 @@
   }
   .main__bottom-img .right .button {
     bottom: -85px
+  }
+  .main .product__items {
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr
+  }
+  .main .product__items.slider-js .slick-slide {
+    padding: 0 5px
   }
   .product__item {
     max-width: 165px

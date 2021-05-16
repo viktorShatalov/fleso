@@ -129,7 +129,7 @@ jQuery(document).ready(function ($) {
     slidesToScroll: 2,
     dots: false,
     infinite: false,
-    arrow: true,
+    arrows: true,
     prevArrow: "<button type=\"button\" class=\"slick-prev\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"29.448\" height=\"14.474\" viewBox=\"0 0 29.448 14.474\">\n        <path id=\"long-arrow-alt-right\" d=\"M8.812,14.867H28.659a.789.789,0,0,1,.789.789v3.681a.789.789,0,0,1-.789.789H8.812v3.028a1.578,1.578,0,0,1-2.693,1.115L.462,18.613a1.577,1.577,0,0,1,0-2.231l5.657-5.657a1.578,1.578,0,0,1,2.693,1.115Z\" transform=\"translate(0 -10.26)\" fill=\"#ebe9e0\"/>\n      </svg></button>",
     nextArrow: "<button type=\"button\" class=\"slick-next\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"29.448\" height=\"14.474\" viewBox=\"0 0 29.448 14.474\">\n      <path id=\"long-arrow-alt-right\" d=\"M20.636,14.867H.789A.789.789,0,0,0,0,15.656v3.681a.789.789,0,0,0,.789.789H20.636v3.028a1.578,1.578,0,0,0,2.693,1.115l5.657-5.657a1.577,1.577,0,0,0,0-2.231l-5.657-5.657a1.578,1.578,0,0,0-2.693,1.115Z\" transform=\"translate(0 -10.26)\" fill=\"#ebe9e0\"/>\n    </svg></button>",
     responsive: [{
@@ -144,8 +144,8 @@ jQuery(document).ready(function ($) {
     slidesToShow: 1,
     slidesToScroll: 1,
     dots: true,
-    infinite: false,
-    arrow: false
+    arrows: false,
+    infinite: false
   }); // mobile settings
 
   $(window).resize(function () {
@@ -186,11 +186,9 @@ jQuery(document).ready(function ($) {
     }
   }
 
-  $(".main__content-top--menu_category ul.category li").on("click", function (e) {
-    if ($(this).children("ul.sub-category")) {
-      e.preventDefault();
-      $(this).children("ul.sub-category li").toggle("slow");
-    }
+  $("ul.sub-category").attr("data-content", "").on("click", function () {
+    $(this).children("li").toggle("show");
+    $(this).toggleClass("active");
   });
 });
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "jquery")))

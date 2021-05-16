@@ -46,93 +46,25 @@
         }
     }
     &__content {
-        &-top {
-            display: grid;
-            grid-template-columns: 290px 3fr;
-            grid-gap: 30px;
-            @include to($mobile) {
-                grid-template-columns: 1fr;
-                & > span {
-                    display: none;
-                }
-            }
-            &--container {
-                margin-bottom: 30px;
-                margin-top: 28px;
-                max-width: 875px;
-                width: 100%;
-                @include to($mobile) {
-                    max-width: 320px;
-                    margin-left: auto;
-                    margin-right: auto;
-                }
-                & > p {
-                    font-family: $font-bold;
-                    display: inline-block;
-                    margin-bottom: 22px;
-                    padding-left: 20px;
-                    text-transform: uppercase;
-                }
-            }
-            &--pseudo {
-                width: 100%;
-                max-width: 275px;
-            }
-        }
-        &-left,
-        .woof_sid_auto_shortcode {
-            border: 1px solid $grey_border-color;
-            position: relative;
-            top: -690px;
-            padding: 28px !important;
-            text-transform: uppercase;
-            height: fit-content;
-            @include to($mobile) {
-                top: 0;
-            }
-        }
-        &-right {
-            .product__items {
-                margin-bottom: 50px;
-            }
-        }
-        &-woocomerce {
-            display: grid;
-            grid-template-columns: 290px 3fr;
-            grid-gap: 30px;
-            position: relative;
-            @include to($mobile) {
-                grid-template-columns: 1fr;
-            }
-        }
-    }
-    .product__items {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 30px 0;
-        @include to($mobile) {
-            grid-template-columns: 1fr 1fr;
-        }
-        &.slider-js {
+        grid-template-areas:
+            "sidebar slider"
+            "sidebar sort"
+            "sidebar products";
+        grid-gap: 0 30px;
+        grid-template-columns: 290px 3fr;
+        &-top {
+            margin-bottom: 30px;
+            margin-top: 28px;
+            max-width: 875px;
             width: 100%;
-            display: block;
-            .slick-slide {
-                padding: 0 12.725px;
-                @include to($mobile) {
-                    padding: 0 5px;
-                }
-            }
-            .slick-prev,
-            .slick-next {
-                right: 23px;
-                left: unset;
-                top: -30px;
-                &:before {
-                    content: none;
-                }
-            }
-            .slick-prev {
-                right: 80px;
+            grid-area: slider;
+            & > p {
+                font-family: $font-bold;
+                display: inline-block;
+                margin-bottom: 22px;
+                padding-left: 20px;
+                text-transform: uppercase;
             }
         }
     }
@@ -249,12 +181,53 @@
             }
         }
     }
+    .product__items {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 30px 0;
+        @include to($mobile) {
+            grid-template-columns: 1fr 1fr;
+        }
+        &.slider-js {
+            width: 100%;
+            display: block;
+            .slick-slide {
+                padding: 0 12.725px;
+                @include to($mobile) {
+                    padding: 0 5px;
+                }
+            }
+            .slick-prev,
+            .slick-next {
+                right: 23px;
+                left: unset;
+                top: -30px;
+                &:before {
+                    content: none;
+                }
+            }
+            .slick-prev {
+                right: 80px;
+            }
+        }
+    }
+    .woof_sid_auto_shortcode {
+        border: 1px solid $grey_border-color;
+        padding: 28px !important;
+        grid-area: sidebar;
+        width: 100%;
+        height: fit-content;
+        border-radius: 0;
+    }
+    .woof_shortcode_output {
+        grid-area: products;
+    }
 }
 .product__item {
     border: 1px solid $grey_border-color;
     padding-bottom: 30px !important;
     width: 100%;
-    max-width: 267px;
+    max-width: 266px;
     margin: 0 auto !important;
     width: 100% !important;
     position: relative;
@@ -265,6 +238,7 @@
         position: relative;
         margin-bottom: 19px;
         border-bottom: 1px solid $grey_border-color;
+        @include transition;
         img {
             width: 100%;
             display: block;
@@ -281,6 +255,16 @@
             text-align: center;
             padding: 7px 16px;
         }
+        .discount {
+            right: unset;
+            left: 0;
+        }
+        &:hover {
+            .tinv-wraper.tinv-wishlist {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
     }
     &-name {
         font-size: 18px;
@@ -288,6 +272,10 @@
         margin-bottom: 18px;
         height: 50px;
         overflow: hidden;
+        @include transition;
+        &:hover {
+            color: $orange-color;
+        }
         h3 {
             font-weight: normal;
         }
@@ -410,21 +398,15 @@
             }
         }
     }
-    &:hover {
-        .tinv-wraper.tinv-wishlist {
-            opacity: 1;
-            visibility: visible;
-        }
-    }
 }
 .sort__form {
     margin-bottom: 30px;
     padding-right: 14px;
-
+    grid-area: sort;
     form {
         display: block;
         width: 100%;
-        max-width: 180px;
+        max-width: fit-content;
         margin-left: auto;
     }
     select {
@@ -451,11 +433,6 @@
     }
     li {
         margin: 0 10px;
-        &.active {
-            a {
-                color: $orange-color;
-            }
-        }
     }
 }
 // woof-filter
@@ -515,12 +492,8 @@
 .woof_checkbox_label {
     font-size: 18px !important;
 }
-.woof_sid_auto_shortcode {
-    border-radius: 0;
-}
 .woof_submit_search_form_container {
     margin-bottom: 0;
-
     button {
         border: 1px solid $grey_border-color;
     }
@@ -549,6 +522,11 @@
                         background: transparent;
                         color: $orange-color;
                         font-weight: bold;
+                    }
+                    &.next,
+                    &.prev {
+                        font-size: 10px;
+                        margin: 5px 0 0;
                     }
                 }
             }
