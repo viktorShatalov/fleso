@@ -165,7 +165,7 @@
   width: 50px
 }
 .header__center-cabinet > a,
-.header__center-catr > a {
+.header__center-cart > a {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -175,28 +175,28 @@
   text-align: center
 }
 .header__center-cabinet > a span,
-.header__center-catr > a span {
+.header__center-cart > a span {
   transition: .3s ease-in-out
 }
 .header__center-cabinet > a:hover span,
-.header__center-catr > a:hover span {
+.header__center-cart > a:hover span {
   color: #e27437
 }
 .header__center-cabinet > a:hover svg path,
-.header__center-catr > a:hover svg path {
+.header__center-cart > a:hover svg path {
   fill: #e27437
 }
 .header__center-cabinet svg,
-.header__center-catr svg {
+.header__center-cart svg {
   margin-bottom: 10px
 }
 .header__center-cabinet {
   margin-right: 60px
 }
-.header__center-catr {
+.header__center-cart {
   position: relative
 }
-.header__center-catr .quantity {
+.header__center-cart .cart__quantity {
   position: absolute;
   right: 0;
   top: -5px;

@@ -159,13 +159,48 @@ div.product {
     width: 100%;
     max-width: 620px;
     min-height: 500px;
-    // border: 1px solid $grey-color;
     h1 {
         width: 100%;
         font-family: $font-bold;
         text-transform: uppercase;
         font-size: 35px;
         margin-bottom: 22px;
+    }
+    .product__description {
+        &-top {
+            font-family: $font-light;
+            position: relative;
+            padding: 20px 0;
+            margin-bottom: 38px;
+            &::after,
+            &::before {
+                content: "";
+                background-color: $orange-color;
+                width: 80px;
+                height: 3px;
+                position: absolute;
+                left: 0;
+            }
+            &::after {
+                bottom: 0;
+            }
+            &::before {
+                top: 0;
+            }
+        }
+        &-bottom {
+            padding-left: 40px;
+            margin-bottom: 30px;
+            li {
+                position: relative;
+                margin-bottom: 10px;
+                &::before {
+                    content: url(../img/awesome/check.png);
+                    position: absolute;
+                    left: -40px;
+                }
+            }
+        }
     }
     .woocommerce-product-details__short-description {
         ul {
@@ -184,7 +219,7 @@ div.product {
         align-items: center;
     }
 }
-.variations_form.cart {
+form.cart {
     max-width: 100%;
     top: 0;
     position: static;
@@ -206,15 +241,21 @@ div.product {
             select {
                 display: block;
                 width: 100%;
-                padding: 0.5rem;
+                max-width: 175px;
+                padding: 15px;
                 border: 1px solid $grey-color;
                 border-radius: 0;
                 background-color: $white-color;
                 font-family: inherit;
-                font-size: 1rem;
+                font-size: 16px;
                 font-weight: normal;
                 color: $black-color;
                 cursor: pointer;
+                appearance: none;
+                background-image: url(../img/awesome/triangle.png);
+                background-repeat: no-repeat, repeat;
+                background-position: right 0.7em top 50%, 0 0;
+                background-size: 0.65em auto, 100%;
             }
         }
     }
@@ -273,7 +314,6 @@ div.product {
         "sliderBottom";
     grid-template-rows: 0fr 0fr 0fr;
     min-height: 500px;
-    border: 1px solid $grey-color;
     &__trigger {
         position: absolute;
         display: block;

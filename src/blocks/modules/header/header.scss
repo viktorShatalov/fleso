@@ -152,7 +152,7 @@
             }
         }
         &-cabinet,
-        &-catr {
+        &-cart {
             & > a {
                 display: flex;
                 flex-direction: column;
@@ -183,9 +183,9 @@
         &-cabinet {
             margin-right: 60px;
         }
-        &-catr {
+        &-cart {
             position: relative;
-            .quantity {
+            .cart__quantity {
                 position: absolute;
                 right: 0;
                 top: -5px;
