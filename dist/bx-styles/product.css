@@ -159,14 +159,14 @@ div.product__description--bottom .item span:nth-child(2) {
   font-size: 35px;
   margin-bottom: 22px
 }
-.summary.entry-summary .product__description-top {
+.summary.entry-summary h3 {
   font-family: Condensed-Light,sans-serif;
   position: relative;
   padding: 20px 0;
   margin-bottom: 38px
 }
-.summary.entry-summary .product__description-top::after,
-.summary.entry-summary .product__description-top::before {
+.summary.entry-summary h3::after,
+.summary.entry-summary h3::before {
   content: "";
   background-color: #e27437;
   width: 80px;
@@ -174,21 +174,21 @@ div.product__description--bottom .item span:nth-child(2) {
   position: absolute;
   left: 0
 }
-.summary.entry-summary .product__description-top::after {
+.summary.entry-summary h3::after {
   bottom: 0
 }
-.summary.entry-summary .product__description-top::before {
+.summary.entry-summary h3::before {
   top: 0
 }
-.summary.entry-summary .product__description-bottom {
+.summary.entry-summary ul {
   padding-left: 40px;
   margin-bottom: 30px
 }
-.summary.entry-summary .product__description-bottom li {
+.summary.entry-summary ul li {
   position: relative;
   margin-bottom: 10px
 }
-.summary.entry-summary .product__description-bottom li::before {
+.summary.entry-summary ul li::before {
   content: url(../img/awesome/check.png);
   position: absolute;
   left: -40px
