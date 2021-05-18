@@ -1,51 +1,79 @@
-.cart_totals h2 {
-  background-color: transparent;
-  font-size: 2rem;
-  color: #9d9d9d;
-  padding: 0;
-  margin: 0
-}
+.checkout_coupon,
 .coupon {
   display: flex;
-  flex-wrap: wrap
+  flex-wrap: wrap;
+  align-items: center;
+  float: left!important;
+  width: 100%;
+  max-width: 500px
 }
-.coupon input {
+.checkout_coupon input.input-text,
+.coupon input.input-text {
   width: 100%!important;
-  max-width: 180px!important;
+  max-width: 200px!important;
   margin: 0 20px 0 0!important;
-  height: 35px!important
+  height: 45px!important;
+  border-radius: 0!important;
+  border: 1px solid #ebe9e0!important;
+  padding-left: 20px!important
 }
-.coupon button {
-  background-color: #004f9e!important;
+.checkout_coupon button.button,
+.coupon button.button {
+  background-color: #e27437!important;
+  padding: 0!important;
   color: #fff!important;
-  height: 35px!important;
-  transition: .3s ease-in-out
+  height: 45px!important;
+  max-width: 200px;
+  width: 100%;
+  transition: .3s ease-in-out;
+  border-radius: 0!important
 }
-.coupon button:hover {
+.checkout_coupon button.button:hover,
+.coupon button.button:hover {
   background-color: #004387;
   color: #fff
 }
-.checkout_coupon input {
-  height: 35px!important
+.checkout_coupon {
+  max-width: 100%!important;
+  margin: 0 0 30px!important;
+  border-radius: 0!important
 }
-.checkout_coupon button {
-  background-color: #004f9e!important;
+.checkout_coupon .form-row.form-row-first {
+  width: 100%;
+  max-width: 250px
+}
+.checkout_coupon p {
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 15px
+}
+.woocommerce table.cart td.actions > button.button {
+  background-color: #e27437!important;
+  padding: 0!important;
   color: #fff!important;
-  height: 35px!important;
+  height: 45px!important;
+  max-width: 200px;
+  width: 100%;
+  border-radius: 0!important;
   transition: .3s ease-in-out
 }
-.checkout_coupon button:hover {
+.woocommerce table.cart td.actions > button.button:hover {
   background-color: #004387;
   color: #fff
 }
 .checkout-button,
 .place-order button {
-  background-color: #004f9e!important;
-  transition: .3s ease-in-out
+  background-color: #e27437!important;
+  border: 1px solid #e27437!important;
+  color: #fff!important;
+  transition: .3s ease-in-out;
+  margin-top: 20px!important;
+  border-radius: 0!important
 }
 .checkout-button:hover,
 .place-order button:hover {
-  background-color: #004387!important
+  background-color: #fff!important;
+  color: #e27437!important
 }
 .woocommerce-cart-form {
   margin-top: 1.85em
@@ -53,14 +81,56 @@
 .woocommerce-cart-form img {
   max-width: 320px
 }
+.woocommerce-cart-form .woocommerce-Price-amount {
+  color: #e27437;
+  font-size: 24px;
+  font-family: RobotoCondensed-Bold
+}
 .woocommerce-checkout .shop_table {
   background-color: transparent!important
 }
+.wgm-tax,
+.wgm-tax .woocommerce-Price-amount {
+  color: #742830;
+  font-size: 16px
+}
+.jde_hint a {
+  color: #e27437;
+  font-family: RobotoCondensed-Bold
+}
+.woocommerce table.shop_table {
+  border-radius: none!important
+}
+.woocommerce ul#shipping_method li {
+  display: flex;
+  align-items: center
+}
+.woocommerce ul#shipping_method li label {
+  cursor: pointer
+}
+.woocommerce form .form-row-first,
+.woocommerce form .form-row-last {
+  width: 100%
+}
+form.checkout h3 {
+  text-transform: uppercase;
+  margin-bottom: 30px
+}
+#customer_details,
+.woocommerce-MyAccount-navigation {
+  margin-bottom: 30px
+}
+.show-password-input {
+  top: 5px!important;
+  right: 5px!important
+}
 @media screen and (max-width:767px) {
+  .checkout_coupon input,
   .coupon input {
     max-width: 100%!important;
     margin: 0 0 20px!important
   }
+  .checkout_coupon button,
   .coupon button {
     width: 100%!important;
     margin: 0 0 20px!important

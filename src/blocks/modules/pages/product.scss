@@ -5,7 +5,9 @@ div.product {
     justify-content: space-between;
     width: 100%;
     position: relative;
-    .onsale {
+    div.onsale,
+    div.discount,
+    div.sale {
         position: absolute;
         left: 0;
         top: 0;
@@ -15,12 +17,13 @@ div.product {
         text-align: center;
         padding: 5px 10px;
         z-index: 1;
+        height: 30px;
+    }
+    div.discount {
+        top: 30px;
     }
     a {
-        color: $blue-color;
-        &:hover {
-            color: $blue_hover-color;
-        }
+        color: $orange-color;
     }
     @include to($mobile) {
         display: block;
@@ -80,11 +83,10 @@ div.product {
             width: 100%;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            grid-gap: 60px;
-            margin-bottom: 65px;
+            grid-gap: 0 60px;
             position: relative;
             color: $white-color;
-            padding: 30px 0;
+            padding: 30px 0 40px;
             &::after {
                 content: "";
                 background-color: $orange-color;
@@ -113,12 +115,16 @@ div.product {
     }
 }
 .related {
+    margin-top: 50px;
     width: 100%;
     grid-area: related;
     ul {
-        grid-template-columns: repeat(4, 1fr) !important;
-        .shipping_de.shipping_de_string {
-            display: none;
+        display: block !important;
+        .slick-slide {
+            width: 266px;
+            .shipping_de {
+                display: none !important;
+            }
         }
     }
     h2 {
@@ -159,6 +165,18 @@ div.product {
     width: 100%;
     max-width: 620px;
     min-height: 500px;
+    ins {
+        text-decoration: none !important;
+    }
+    del {
+        font-size: 24px;
+        font-family: $font-normal;
+        color: $dark_red_color;
+        opacity: 1 !important;
+    }
+    .stock {
+        display: none !important;
+    }
     h1 {
         width: 100%;
         font-family: $font-bold;
@@ -171,6 +189,7 @@ div.product {
         position: relative;
         padding: 20px 0;
         margin-bottom: 38px;
+        font-weight: normal;
         &::after,
         &::before {
             content: "";
@@ -208,40 +227,68 @@ div.product {
             }
         }
     }
+    .legacy-itemprop-offers {
+        text-align: end;
+        .price {
+            font-size: 38px;
+            color: $orange-color;
+            font-family: $font-bold;
+            white-space: nowrap;
+            text-align: center;
+        }
+        .woocommerce-price-suffix {
+            display: none;
+        }
+        .shipping_de_string,
+        .woocommerce-de_price_taxrate,
+        .woocommerce_de_versandkosten {
+            font-size: 12px;
+            color: $grey-color;
+        }
+    }
 }
 .woocommerce-variation-add-to-cart {
+    @include flex;
+    align-items: center;
+    justify-content: flex-end;
     @include to($mobile) {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 15px;
-        align-items: center;
     }
 }
 form.cart {
     max-width: 100%;
     top: 0;
-    position: static;
+    position: relative;
     background-color: transparent;
     padding: 0;
+    @include flex;
+    align-items: center;
+    justify-content: flex-end;
+    .tinv-wraper.tinv-wishlist {
+        display: none !important;
+    }
     .variations {
         width: 100%;
+        tbody {
+            @include flex;
+        }
+
         tr {
-            margin: 15px 0;
+            margin: 0 20px 0 0;
             display: flex;
             flex-direction: column;
+            width: 100%;
+            max-width: 175px;
             &:last-child {
-                margin-bottom: 0;
+                margin: 0;
             }
             .label {
-                font-size: 0.875rem;
-                margin-bottom: 5px;
+                display: none !important;
             }
             select {
                 display: block;
                 width: 100%;
-                max-width: 175px;
                 padding: 15px;
-                border: 1px solid $grey-color;
+                border: 1px solid rgb(241, 240, 234);
                 border-radius: 0;
                 background-color: $white-color;
                 font-family: inherit;
@@ -260,21 +307,25 @@ form.cart {
     .reset_variations {
         display: block;
         margin: 10px 0 0;
+        white-space: nowrap;
+        color: $dark_red_color;
     }
     .quantity {
         position: relative;
         input {
             display: block;
             width: 100%;
+            max-width: 48px;
+            height: 50px;
             border-radius: 0;
             background-color: $white-color;
             font-family: inherit;
             font-weight: normal;
-            color: $orange-color;
+            color: inherit;
             cursor: pointer;
-            @include to($mobile) {
-                max-width: 100%;
-            }
+            border: 1px solid rgb(241, 240, 234);
+            padding: 11px 0 11px 5px;
+            margin-right: 12px;
         }
     }
     .single_add_to_cart_button {
@@ -282,23 +333,69 @@ form.cart {
         background-color: $orange-color;
         border: 1px solid $orange-color;
         cursor: pointer;
-        padding: 13px 50px 13px 15px;
+        padding: 13px 15px;
         margin: 1rem 0;
         line-height: 1;
         color: $white-color;
         display: block;
-        margin-left: auto;
         font-size: 20px;
+        height: 50px;
         @include transition;
+        display: flex;
+        align-items: center;
+        svg {
+            margin-left: 15px;
+        }
         &:hover {
             background-color: $white-color;
             color: $orange-color;
+            svg {
+                path {
+                    fill: $orange-color;
+                }
+            }
         }
         @include to($mobile) {
             font-size: 1em;
             white-space: nowrap;
             width: 100%;
         }
+    }
+    .single_variation_wrap {
+        @include flex;
+        align-items: center;
+        margin: 20px 0;
+        .woocommerce-variation {
+            &-availability {
+                display: none !important;
+            }
+            &-price {
+                margin-right: 30px;
+                ins {
+                    text-decoration: none !important;
+                }
+                del {
+                    font-size: 24px;
+                    font-family: $font-normal;
+                    color: $dark_red_color;
+                    opacity: 1 !important;
+                }
+                .price {
+                    font-size: 38px;
+                    color: $orange-color;
+                    font-family: $font-bold;
+                }
+                .shipping_de_string,
+                .woocommerce-de_price_taxrate,
+                .woocommerce_de_versandkosten {
+                    display: none !important;
+                }
+            }
+        }
+    }
+    a.added_to_cart {
+        position: absolute;
+        bottom: -15px;
     }
 }
 .woocommerce-product-gallery {
@@ -313,6 +410,7 @@ form.cart {
     grid-template-rows: 0fr 0fr 0fr;
     min-height: 500px;
     &__trigger {
+        display: none !important;
         position: absolute;
         display: block;
         left: 100%;
@@ -334,6 +432,7 @@ form.cart {
         grid-area: sliderBottom;
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         font-size: 0;
         margin-top: 20px;
         @include to($mobile) {
@@ -349,12 +448,10 @@ form.cart {
         li {
             margin: 0 5px;
             border: 1px solid $grey-color;
-            border-radius: 3px;
             cursor: pointer;
             img {
                 width: 100px;
                 display: block;
-                padding: 5px;
                 height: 100px;
                 object-fit: contain;
             }

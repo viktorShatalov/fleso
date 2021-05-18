@@ -203,6 +203,7 @@
     &__bottom {
         background-color: $black-color;
         position: relative;
+        @include transition;
         &::after {
             content: "";
             width: 100%;
@@ -217,6 +218,9 @@
                 display: flex;
                 align-items: center;
                 @include transition;
+                &[aria-current="page"] {
+                    color: $orange-color;
+                }
                 &:hover {
                     color: $orange-color;
                     svg {
@@ -276,7 +280,7 @@
                 opacity: 0;
                 position: absolute;
                 left: 0;
-                top: 75px;
+                top: 70px;
                 background-color: $black-color;
                 width: 235px;
                 padding: 10px 0 20px 30px;
@@ -287,6 +291,18 @@
                     padding: 11px 0;
                     font-size: 18px;
                 }
+            }
+        }
+        &.fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 5;
+            &::after {
+                top: unset;
+                left: 0;
+                bottom: 0;
             }
         }
     }

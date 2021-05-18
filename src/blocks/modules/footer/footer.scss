@@ -277,12 +277,12 @@ nav.woocommerce-breadcrumb {
         width: 100%;
     }
 }
-.added_to_cart,
-.woof_products_top_panel,
-#woof_results_by_ajax .woocommerce-ordering,
-.woocommerce-result-count {
-    display: none !important;
-}
+
+// .woof_products_top_panel,
+// #woof_results_by_ajax .woocommerce-ordering,
+// .woocommerce-result-count {
+//     display: none !important;
+// }
 .woocommerce {
     ul.products {
         &::after,

@@ -274,12 +274,6 @@ nav.woocommerce-breadcrumb a:hover {
 .woocommerce-ordering select {
   width: 100%
 }
-#woof_results_by_ajax .woocommerce-ordering,
-.added_to_cart,
-.woocommerce-result-count,
-.woof_products_top_panel {
-  display: none!important
-}
 .woocommerce ul.products::after,
 .woocommerce ul.products::before {
   content: none
