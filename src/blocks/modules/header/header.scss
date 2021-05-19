@@ -6,21 +6,30 @@
     a {
         color: $white-color;
     }
-
     &__top {
         font-size: 16px;
         .container {
             @include flex;
+            @include to($mobile) {
+                flex-wrap: nowrap;
+            }
         }
         background-color: $black-color;
         &--left {
             position: relative;
             z-index: 1;
             padding: 15px 0;
-            @include flex;
+            display: flex;
             align-items: center;
             padding-right: 44px;
             border-right: 9px solid $dark_red_color;
+            @include to($mobile) {
+                border-right: none;
+                justify-content: space-between;
+                flex-direction: row-reverse;
+                padding-right: 5%;
+                width: 30%;
+            }
             &::before {
                 content: "";
                 background-color: $orange-color;
@@ -32,14 +41,29 @@
                 height: 100%;
             }
             li {
+                @include to($mobile) {
+                    width: 40px;
+                    margin-right: 0;
+                    &.phone {
+                        svg {
+                            width: 75%;
+                        }
+                    }
+                }
                 &:first-child {
                     margin-right: 36px;
+                    @include to($mobile) {
+                        margin-right: 0;
+                    }
                 }
                 a {
                     display: flex;
                     align-items: center;
                     span {
                         display: table;
+                        @include to($mobile) {
+                            display: none;
+                        }
                     }
                 }
                 &:hover {
@@ -50,19 +74,50 @@
             }
             svg {
                 margin-right: 11px;
+                @include to($mobile) {
+                    margin-right: 0;
+                }
             }
         }
         &--right {
             padding: 15px 0;
-            @include flex;
+            display: flex;
             margin-left: auto;
+            @include to($mobile) {
+                margin: 0;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: row-reverse;
+                width: inherit;
+                width: 70%;
+            }
             li {
                 margin: 0 25px;
                 position: relative;
+                @include to($mobile) {
+                    width: 40px;
+                    margin: 0;
+                    &.facebooke {
+                        background-color: $white-color;
+                        border-radius: 50%;
+                        padding-top: 10px;
+                        svg {
+                            height: 40px;
+                            path {
+                                fill: $orange-color;
+                            }
+                        }
+                    }
+                }
                 a {
                     display: flex;
                     align-items: center;
                     @include transition;
+                    span {
+                        @include to($mobile) {
+                            display: none;
+                        }
+                    }
                 }
                 &::after {
                     content: "";
@@ -72,10 +127,16 @@
                     position: absolute;
                     right: -25px;
                     top: 0;
+                    @include to($mobile) {
+                        content: none;
+                    }
                 }
                 img,
                 svg {
                     margin-right: 12px;
+                    @include to($mobile) {
+                        margin-right: 0;
+                    }
                 }
                 &:hover {
                     a {
@@ -84,6 +145,9 @@
                     svg {
                         path {
                             fill: $orange-color;
+                            @include to($mobile) {
+                                fill: $white-color;
+                            }
                         }
                     }
                 }
@@ -91,11 +155,22 @@
                     margin-right: 0;
                     svg {
                         margin-right: 0;
+                        @include to($mobile) {
+                            height: 30px;
+                        }
                     }
                     &::after {
                         content: none;
                     }
                 }
+            }
+        }
+        @include to($mobile) {
+            background-color: $orange-color;
+            margin-bottom: 30px;
+            svg {
+                width: 100%;
+                height: 100%;
             }
         }
     }
@@ -108,15 +183,60 @@
         a {
             color: $black-color;
         }
+        &-mobile--menu {
+            display: none;
+            position: relative;
+            align-items: center;
+            height: 25px;
+            width: 28px;
+            span {
+                width: 100%;
+                height: 4px;
+                background-color: $dark_red_color;
+                &::after,
+                &::before {
+                    content: "";
+                    width: 28px;
+                    height: 4px;
+                    background-color: $dark_red_color;
+                    position: absolute;
+                    left: 0;
+                }
+                &::after {
+                    bottom: 0;
+                }
+                &::before {
+                    top: 0;
+                }
+            }
+            @include to($mobile) {
+                display: flex;
+            }
+        }
         &-logo {
             position: relative;
             .img {
-                width: 277px;
+                width: 100%;
+                max-width: 277px;
+                svg {
+                    width: 100%;
+                }
+                @include to($mobile) {
+                    max-width: 190px;
+                }
             }
             .timer {
                 position: absolute;
                 right: -25px;
                 top: -28px;
+                svg {
+                    width: 100%;
+                }
+                @include to($mobile) {
+                    max-width: 20px;
+                    right: -13px;
+                    top: -13px;
+                }
             }
         }
         &-rigth {
@@ -128,6 +248,15 @@
             width: 100%;
             max-width: 485px;
             position: relative;
+            @include to($mobile) {
+                display: none;
+                position: absolute;
+                width: 100%;
+                background-color: $white-color;
+                z-index: 5;
+                top: 70px;
+                left: 0;
+            }
             input {
                 width: 100%;
                 display: block;
@@ -161,8 +290,14 @@
                 width: 100%;
                 max-width: 85px;
                 text-align: center;
+                @include to($mobile) {
+                    max-width: 45px;
+                }
                 span {
                     @include transition;
+                    @include to($mobile) {
+                        display: none;
+                    }
                 }
 
                 &:hover {
@@ -182,6 +317,9 @@
         }
         &-cabinet {
             margin-right: 60px;
+            @include to($mobile) {
+                margin-right: 20px;
+            }
         }
         &-cart {
             position: relative;
@@ -204,6 +342,24 @@
         background-color: $black-color;
         position: relative;
         @include transition;
+        @include to($mobile) {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 5;
+            background-color: $white-color;
+            padding-top: 20px;
+            a {
+                color: $black-color;
+            }
+            &:after {
+                top: 0;
+            }
+        }
+        &.active {
+            display: block;
+        }
         &::after {
             content: "";
             width: 100%;
@@ -214,10 +370,16 @@
             left: 0;
         }
         &-menu {
+            @include to($mobile) {
+                overflow: auto;
+            }
             a {
                 display: flex;
                 align-items: center;
                 @include transition;
+                @include to($mobile) {
+                    justify-content: center;
+                }
                 &[aria-current="page"] {
                     color: $orange-color;
                 }
@@ -234,15 +396,26 @@
                 @include flex;
                 align-items: center;
                 justify-content: space-between;
+                @include to($mobile) {
+                    justify-content: center;
+                }
                 li.menu__item {
                     position: relative;
                     padding: 24px 0;
                     @include transition;
                     font-size: 22px;
+                    @include to($mobile) {
+                        width: 100%;
+                        padding: 10px 0;
+                    }
                     span.icon {
                         display: flex;
                         align-items: center;
                         margin-right: 13px;
+                        @include to($mobile) {
+                            display: none;
+                            justify-content: center;
+                        }
                     }
                     &:last-child {
                         span.icon {
@@ -286,10 +459,32 @@
                 padding: 10px 0 20px 30px;
                 @include transition;
                 z-index: 1;
-                transform: translateY(10px);
                 li.sub__menu-item {
                     padding: 11px 0;
                     font-size: 18px;
+                }
+                @include to($mobile) {
+                    background-color: transparent;
+                    visibility: visible;
+                    opacity: 1;
+                    position: relative;
+                    top: 0;
+                    width: 100%;
+                    padding: 0;
+                    a {
+                        color: $black-color;
+                    }
+                    &::after {
+                        content: "+";
+                        position: absolute;
+                        right: 10%;
+                        top: -25px;
+                        padding: 0 10px;
+                        z-index: 1;
+                    }
+                    li.sub__menu-item {
+                        display: none;
+                    }
                 }
             }
         }

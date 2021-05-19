@@ -56,6 +56,9 @@ body.overflow {
   margin: 0 auto;
   padding: 0 20px
 }
+.mobile__visible {
+  display: none
+}
 ul {
   list-style-type: none
 }
@@ -240,7 +243,17 @@ template {
   display: none
 }
 @media screen and (max-width:767px) {
+  body {
+    font-size: 18px;
+    line-height: 1.4
+  }
   .container {
-    padding: 0
+    padding: 0 10px
+  }
+  .mobile__visible {
+    display: block
+  }
+  .mobile__hide {
+    display: none
   }
 }

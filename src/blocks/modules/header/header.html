@@ -11,7 +11,7 @@
                         </svg>
                         <span>info@fleso.de</span>
                     </a></li>
-                <li><a href="">
+                <li class="phone"><a href="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14.266" height="14.266"
                             viewBox="0 0 14.266 14.266">
                             <path id="phone-alt"
@@ -22,7 +22,7 @@
                     </a></li>
             </ul>
             <ul class="header__top--right">
-                <li><a href="">
+                <li class="mobile__hide"><a href="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14.857" viewBox="0 0 13 14.857">
                             <path id="unlock-alt"
                                 d="M11.607,7.429h-7.2V4.437a2.089,2.089,0,1,1,4.179-.026v.464a.7.7,0,0,0,.7.7h.929a.7.7,0,0,0,.7-.7V4.411a4.411,4.411,0,1,0-8.822.043V7.429h-.7A1.393,1.393,0,0,0,0,8.821v4.643a1.393,1.393,0,0,0,1.393,1.393H11.607A1.393,1.393,0,0,0,13,13.464V8.821A1.393,1.393,0,0,0,11.607,7.429ZM7.661,11.839a1.161,1.161,0,0,1-2.322,0V10.447a1.161,1.161,0,0,1,2.322,0Z"
@@ -47,7 +47,16 @@
                         </svg>
                         <span>Hilfe & Kontakt</span>
                     </a></li>
-                <li><a href="">
+                <li class="mobile__visible search-js"><a href="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="34.655" height="34.66"
+                            viewBox="0 0 34.655 34.66">
+                            <path id="search"
+                                d="M34.184,29.966l-6.749-6.749a1.623,1.623,0,0,0-1.15-.474h-1.1a14.074,14.074,0,1,0-2.437,2.437v1.1a1.623,1.623,0,0,0,.474,1.15l6.749,6.749a1.618,1.618,0,0,0,2.3,0l1.916-1.916a1.632,1.632,0,0,0,.007-2.3Zm-20.1-7.222a8.664,8.664,0,1,1,8.664-8.664A8.659,8.659,0,0,1,14.08,22.744Z"
+                                fill="#fff" />
+                        </svg>
+                        <span>search</span>
+                    </a></li>
+                <li class="mobile__hide"><a href="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
                             <path id="info-circle"
                                 d="M8.063.563a7.5,7.5,0,1,0,7.5,7.5A7.5,7.5,0,0,0,8.063.563Zm0,3.326a1.27,1.27,0,1,1-1.27,1.27A1.27,1.27,0,0,1,8.063,3.889ZM9.756,11.57a.363.363,0,0,1-.363.363H6.732a.363.363,0,0,1-.363-.363v-.726a.363.363,0,0,1,.363-.363h.363V8.546H6.732a.363.363,0,0,1-.363-.363V7.457a.363.363,0,0,1,.363-.363H8.667a.363.363,0,0,1,.363.363v3.024h.363a.363.363,0,0,1,.363.363v.726Z"
@@ -55,7 +64,7 @@
                         </svg>
                         <span>Über Uns</span>
                     </a></li>
-                <li><a href="">
+                <li class="facebook"><a href="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="8.32" height="15.534" viewBox="0 0 8.32 15.534">
                             <path id="facebook-f"
                                 d="M9.384,8.738l.431-2.811h-2.7V4.1A1.406,1.406,0,0,1,8.7,2.583H9.929V.19A14.967,14.967,0,0,0,7.752,0,3.432,3.432,0,0,0,4.079,3.784V5.926H1.609V8.738H4.078v6.8H7.117v-6.8Z"
@@ -66,6 +75,9 @@
         </div>
     </div>
     <div class="header__center container">
+        <div class="header__center-mobile--menu burger-js">
+            <span></span>
+        </div>
         <div class="header__center-logo">
             <a href="">
                 <div class="img">
