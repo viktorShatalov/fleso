@@ -95,6 +95,7 @@
 .header__top--right li:last-child {
   margin-right: 0
 }
+.header__top--right li:last-child img,
 .header__top--right li:last-child svg {
   margin-right: 0
 }
@@ -146,6 +147,7 @@
   width: 100%;
   max-width: 277px
 }
+.header__center-logo .img img,
 .header__center-logo .img svg {
   width: 100%
 }
@@ -154,6 +156,7 @@
   right: -25px;
   top: -28px
 }
+.header__center-logo .timer img,
 .header__center-logo .timer svg {
   width: 100%
 }
@@ -218,7 +221,9 @@
 .header__center-cart > a:hover svg path {
   fill: #e27437
 }
+.header__center-cabinet img,
 .header__center-cabinet svg,
+.header__center-cart img,
 .header__center-cart svg {
   margin-bottom: 10px
 }
@@ -323,22 +328,36 @@
   z-index: 1
 }
 .header__bottom-menu .sub__menu li.sub__menu-item {
-  padding: 11px 0;
-  font-size: 18px
+  padding: 5px 0;
+  font-size: 18px;
+  text-transform: initial
 }
 .header__bottom.fixed {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 5
+  z-index: 20
 }
 .header__bottom.fixed::after {
-  top: unset;
   left: 0;
+  top: unset;
   bottom: 0
 }
+@media screen and (max-width:1024px) {
+  .header__center-logo .img {
+    max-width: 180px
+  }
+}
 @media screen and (max-width:767px) {
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 20
+  }
+  .header.shadow {
+    box-shadow: 1px 1px 5px 2px rgba(0,0,0,.205)
+  }
   .header__top .container {
     flex-wrap: nowrap
   }
@@ -346,13 +365,14 @@
     border-right: none;
     justify-content: space-between;
     flex-direction: row-reverse;
-    padding-right: 5%;
+    padding: 8px 5% 8px 0;
     width: 30%
   }
   .header__top--left li {
     width: 40px;
     margin-right: 0
   }
+  .header__top--left li.phone img,
   .header__top--left li.phone svg {
     width: 75%
   }
@@ -370,7 +390,8 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: row-reverse;
-    width: 70%
+    width: 70%;
+    padding: 8px 0
   }
   .header__top--right li {
     width: 40px;
@@ -381,9 +402,11 @@
     border-radius: 50%;
     padding-top: 10px
   }
+  .header__top--right li.facebooke img,
   .header__top--right li.facebooke svg {
     height: 40px
   }
+  .header__top--right li.facebooke img path,
   .header__top--right li.facebooke svg path {
     fill: #e27437
   }
@@ -400,16 +423,22 @@
   .header__top--right li:hover svg path {
     fill: #fff
   }
+  .header__top--right li:last-child img,
   .header__top--right li:last-child svg {
     height: 30px
   }
   .header__top {
     background-color: #e27437;
-    margin-bottom: 30px
+    margin-bottom: 0
   }
+  .header__top img,
   .header__top svg {
     width: 100%;
     height: 100%
+  }
+  .header__center {
+    background-color: #fff;
+    padding-top: 10px
   }
   .header__center-mobile--menu {
     display: flex
@@ -449,7 +478,8 @@
     position: absolute;
     z-index: 5;
     background-color: #fff;
-    padding-top: 20px
+    padding-top: 20px;
+    height: 100vh
   }
   .header__bottom a {
     color: #141414
@@ -460,13 +490,17 @@
   .header__bottom-menu {
     overflow: auto
   }
-  .header__bottom-menu .menu,
   .header__bottom-menu a {
     justify-content: center
   }
+  .header__bottom-menu .menu {
+    justify-content: center;
+    overflow: auto
+  }
   .header__bottom-menu .menu li.menu__item {
     width: 100%;
-    padding: 10px 0
+    padding: 5px 0;
+    text-transform: uppercase
   }
   .header__bottom-menu .menu li.menu__item span.icon {
     display: none;
@@ -487,12 +521,32 @@
   .header__bottom-menu .sub__menu::after {
     content: "+";
     position: absolute;
-    right: 10%;
-    top: -25px;
+    right: 0;
+    top: -30px;
     padding: 0 10px;
     z-index: 1
   }
+  .header__bottom-menu .sub__menu.active:after {
+    content: "-"
+  }
   .header__bottom-menu .sub__menu li.sub__menu-item {
     display: none
+  }
+  .header__bottom.fixed {
+    top: 120px
+  }
+  .header__bottom.fixed::after {
+    top: 0;
+    bottom: unset
+  }
+}
+@media screen and (max-width:320px) {
+  .header__center-logo .img {
+    max-width: 145px
+  }
+}
+@media screen and (min-width:767px) and (max-width:1024px) {
+  .header__top--right li {
+    margin: 0 15px
   }
 }

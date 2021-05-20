@@ -124,7 +124,29 @@ form.checkout h3 {
   top: 5px!important;
   right: 5px!important
 }
+.woocommerce table.shop_table_responsive tr td::before {
+  float: none!important
+}
+.woocommerce table.shop_table_responsive tr:nth-child(2n) td,
+.woocommerce-page table.shop_table_responsive tr:nth-child(2n) td {
+  background-color: transparent!important
+}
+.select2-container--default .select2-selection--single {
+  border: 1px solid #818181;
+  font-size: 1rem;
+  color: rgba(0,0,0,.6);
+  border-radius: 2px;
+  padding: .3em 0 .5em;
+  height: 39px
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 39px
+}
 @media screen and (max-width:767px) {
+  .checkout_coupon input.input-text,
+  .coupon input.input-text {
+    margin-bottom: 20px!important
+  }
   .checkout_coupon input,
   .coupon input {
     max-width: 100%!important;
@@ -135,9 +157,19 @@ form.checkout h3 {
     width: 100%!important;
     margin: 0 0 20px!important
   }
+  .checkout_coupon .form-row.form-row-first {
+    max-width: 100%
+  }
+  .checkout_coupon .form-row.form-row-first input {
+    max-width: 100%!important
+  }
+  .checkout_coupon .form-row.form-row-last button.button {
+    max-width: 100%
+  }
   .checkout-button,
   .place-order button {
     width: 100%;
-    text-align: center
+    text-align: center;
+    margin-bottom: 20px!important
   }
 }

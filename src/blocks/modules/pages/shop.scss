@@ -2,6 +2,9 @@
 .main {
     padding-bottom: 50px;
     margin-bottom: 50px;
+    p.woocommerce-info {
+        display: none !important;
+    }
     h1,
     h2 {
         text-transform: uppercase;
@@ -72,19 +75,35 @@
         grid-gap: 30px;
         grid-template-columns: 290px 3fr;
         grid-template-rows: 0fr 48px 1fr;
+        @include to($mobile) {
+            display: block;
+        }
         &--slider {
             grid-area: slider;
+            @include to($mobile) {
+                margin-bottom: 45px;
+            }
         }
         &-top {
             margin-top: 15px;
             max-width: 875px;
             width: 100%;
+            @include to($mobile) {
+                max-width: 100vw;
+            }
             & > p {
                 font-family: $font-bold;
                 display: inline-block;
                 margin-bottom: 22px;
                 padding-left: 20px;
                 text-transform: uppercase;
+                @include to($mobile) {
+                    text-align: center;
+                    width: 100%;
+                    padding-left: 0;
+                    margin-bottom: 50px;
+                    font-size: 20px;
+                }
             }
             .product__items {
                 margin-bottom: 0 !important;
@@ -101,9 +120,11 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 40px;
             margin-bottom: 50px;
+            text-align: center;
             @include to($mobile) {
                 grid-template-columns: 1fr;
                 gap: 20px;
+                margin-bottom: 50px;
                 h2 {
                     grid-column: unset;
                 }
@@ -160,6 +181,9 @@
         &-about {
             margin-bottom: 50px;
             width: 100%;
+            @include to($mobile) {
+                margin-top: 50px;
+            }
             ul {
                 display: flex;
                 flex-wrap: wrap;
@@ -217,7 +241,8 @@
                 img {
                     width: 100%;
                     display: block;
-                    object-fit: contain;
+                    object-fit: cover;
+                    height: 100%;
                 }
                 @include to($mobile) {
                     border-bottom: 10px solid $dark_red_color;
@@ -262,6 +287,12 @@
                         bottom: -60px;
                         left: -10px;
                     }
+                    @include to($mobiles) {
+                        padding: 10px 5px;
+                        left: 0;
+                        bottom: -45px;
+                        white-space: nowrap;
+                    }
                     svg {
                         margin-left: 25px;
                     }
@@ -289,6 +320,7 @@
         }
         @include to($mobile) {
             grid-template-columns: 1fr 1fr;
+            margin-bottom: 50px;
         }
         &.slider-js {
             width: 100%;
@@ -341,6 +373,10 @@
         width: 100%;
         height: fit-content;
         border-radius: 0;
+        @include to($mobile) {
+            position: relative;
+            top: -48px;
+        }
     }
     .woof_shortcode_output {
         grid-area: products;
@@ -356,11 +392,16 @@
     position: relative;
     @include to($mobile) {
         max-width: 165px;
+        min-height: 420px;
         padding-left: 0;
         padding-right: 0;
         margin-right: 10px !important;
         margin-left: 0 !important;
     }
+    @include to($mobiles) {
+        max-width: 140px;
+    }
+
     &-img {
         position: relative;
         margin-bottom: 19px;
@@ -396,7 +437,7 @@
         overflow: hidden;
         @include transition;
         @include to($mobile) {
-            height: auto;
+            min-height: 57px;
             padding: 0 15px;
             h3 {
                 font-size: 16px;
@@ -437,6 +478,16 @@
         span {
             display: inline-block;
             white-space: nowrap;
+            @include to($tablet) {
+                white-space: normal;
+            }
+            @include to($mobile) {
+                letter-spacing: -0.5px;
+                white-space: nowrap;
+            }
+            @include to($mobiles) {
+                white-space: normal;
+            }
         }
         .price {
             margin: 0 auto !important;
@@ -456,12 +507,18 @@
             font-size: 16px;
             font-family: $font-normal;
             color: $dark_red_color;
+            @include to($mobile) {
+                font-size: 12px;
+            }
         }
         .min_quantity {
             text-align: left;
             width: 75px;
             white-space: normal;
             grid-area: min_quantity;
+            @include to($mobile) {
+                width: 50px;
+            }
         }
         .woocommerce-de_price_taxrate {
             position: absolute;
@@ -558,6 +615,9 @@
         background-color: rgba(255, 255, 255, 0.308);
         opacity: 0;
         z-index: 1;
+        @include to($mobile) {
+            height: 39%;
+        }
         .tinvwl_add_to_wishlist_button {
             display: block;
             width: 80%;
@@ -577,13 +637,24 @@
     margin-bottom: 30px;
     padding-right: 14px;
     grid-area: sort;
+    @include to($mobile) {
+        max-width: 50%;
+        float: right;
+        position: relative;
+        z-index: 1;
+        margin-bottom: 0px;
+    }
     form {
         display: block;
         width: 100%;
         max-width: fit-content;
         margin-left: auto;
+        @include to($mobile) {
+            max-width: 100%;
+        }
     }
     select {
+        background-color: transparent;
         font-size: 14px;
         color: $black-color;
         padding: 15px 22px;
@@ -610,7 +681,27 @@
     }
 }
 // woof-filter
-
+.woof__mobile__btn {
+    background-color: $white-color;
+    color: $black-color;
+    border: 1px solid $grey_border-color;
+    width: 100%;
+    padding: 15px 22px;
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+    max-width: 46%;
+    white-space: nowrap;
+    @include to($mobile) {
+        display: block;
+    }
+}
+.woof_redraw_zone {
+    @include to($mobile) {
+        display: none;
+        margin-top: 30px;
+    }
+}
 .woof_reset_search_form {
     color: $orange-color;
     background-color: transparent;
@@ -638,8 +729,6 @@
 .woof_checkbox_instock_container {
     position: relative;
     max-width: 275px;
-    label {
-    }
     input[type="checkbox"] + label::before {
         left: 3px;
     }
@@ -651,11 +740,14 @@
     border: 1px solid $grey_border-color;
     padding: 28px !important;
     margin-bottom: 30px !important;
+    width: 100% !important;
+    @include to($mobile) {
+        padding: 25px !important;
+    }
     &_inner {
         position: relative;
         padding-left: 0 !important;
     }
-    width: 100% !important;
     h4 {
         display: inline-block;
         margin-bottom: 18px;

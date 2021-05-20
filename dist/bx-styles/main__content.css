@@ -16,9 +16,6 @@
   margin-right: 20px;
   position: relative
 }
-.breadcumbs li:last-child {
-  margin-right: 0
-}
 .breadcumbs li.active a {
   font-family: RobotoCondensed-Bold
 }
@@ -29,6 +26,9 @@
   position: absolute;
   right: -13px;
   top: 1px
+}
+.breadcumbs li:last-child {
+  margin-right: 0
 }
 .breadcumbs li:last-child::after {
   content: none
@@ -156,30 +156,23 @@
 .main__firstpage--left ul.sub-category {
   padding-left: 45px
 }
-.main__firstpage--left ul.sub-category::after,
-.main__firstpage--left ul.sub-category::before {
-  content: "_";
+.main__firstpage--left ul.sub-category::after {
+  content: "+";
   position: absolute;
   right: 0;
+  top: 0;
   width: 20px;
-  height: 20px;
+  height: 100%;
+  text-align: center;
+  padding-top: 34px;
   z-index: 1;
   cursor: pointer;
   font-size: 20px;
-  line-height: 0
-}
-.main__firstpage--left ul.sub-category::after {
-  padding-left: 3px;
-  top: 22px
-}
-.main__firstpage--left ul.sub-category::before {
-  top: 26px;
-  right: 5px;
-  transform: rotate(90deg);
+  line-height: 0;
   transition: .3s ease-in-out
 }
-.main__firstpage--left ul.sub-category.active::before {
-  content: none
+.main__firstpage--left ul.sub-category.active::after {
+  content: "-"
 }
 .main__firstpage--left ul.sub-category li {
   padding: 4px 0;
@@ -217,10 +210,29 @@
   margin: 30px 0
 }
 @media screen and (max-width:767px) {
+  .breadcumbs {
+    justify-content: center;
+    margin-top: 30px
+  }
+  .breadcumbs ul {
+    justify-content: center
+  }
+  .breadcumbs li:last-child {
+    width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
+  }
+  .breadcumbs .head {
+    display: none
+  }
   .main__slider {
     margin-top: 20px;
     display: flex;
     flex-direction: column-reverse;
+    margin-bottom: 0
+  }
+  .main__slider .main__header {
     margin-bottom: 0
   }
   .main__slider-item--top {
@@ -276,5 +288,10 @@
   .main__firstpage--products {
     -ms-grid-row: 3;
     -ms-grid-column: 1
+  }
+}
+@media screen and (max-width:320px) {
+  .breadcumbs li:last-child {
+    width: 70px
   }
 }

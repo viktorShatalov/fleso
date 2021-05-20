@@ -3,6 +3,9 @@
   padding-bottom: 50px;
   margin-bottom: 50px
 }
+.main p.woocommerce-info {
+  display: none!important
+}
 .main h1,
 .main h2 {
   text-transform: uppercase;
@@ -106,7 +109,8 @@
   -ms-grid-columns: (1fr)[2];
   grid-template-columns: repeat(2,1fr);
   gap: 40px;
-  margin-bottom: 50px
+  margin-bottom: 50px;
+  text-align: center
 }
 .main__bottom-top h2 {
   -ms-grid-column: 1;
@@ -200,8 +204,9 @@
 .main__bottom-img .left img {
   width: 100%;
   display: block;
-  -o-object-fit: contain;
-  object-fit: contain
+  -o-object-fit: cover;
+  object-fit: cover;
+  height: 100%
 }
 .main__bottom-img .right {
   width: 100%;
@@ -508,6 +513,7 @@
   margin-left: auto
 }
 .sort__form select {
+  background-color: transparent;
   font-size: 14px;
   color: #141414;
   padding: 15px 22px;
@@ -531,6 +537,18 @@
 }
 .pagination li {
   margin: 0 10px
+}
+.woof__mobile__btn {
+  background-color: #fff;
+  color: #141414;
+  border: 1px solid #ebe9e0;
+  width: 100%;
+  padding: 15px 22px;
+  text-align: center;
+  font-size: 12px;
+  cursor: pointer;
+  max-width: 46%;
+  white-space: nowrap
 }
 .woof_reset_search_form {
   color: #e27437;
@@ -797,6 +815,11 @@ div.asl_w .probox .proinput input {
 div.asl_m.asl_w {
   padding: 10px 0
 }
+@media screen and (max-width:1024px) {
+  .product__item-price span {
+    white-space: normal
+  }
+}
 @media screen and (max-width:767px) {
   .main h1,
   .main h2 {
@@ -815,13 +838,30 @@ div.asl_m.asl_w {
   .main__header p {
     line-height: 1.4
   }
+  .main__content {
+    display: block
+  }
+  .main__content--slider {
+    margin-bottom: 45px
+  }
+  .main__content-top {
+    max-width: 100vw
+  }
+  .main__content-top > p {
+    text-align: center;
+    width: 100%;
+    padding-left: 0;
+    margin-bottom: 50px;
+    font-size: 20px
+  }
   .main__bottom {
     margin-bottom: 150px
   }
   .main__bottom-top {
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
-    gap: 20px
+    gap: 20px;
+    margin-bottom: 50px
   }
   .main__bottom-top h2 {
     grid-column: unset
@@ -835,6 +875,9 @@ div.asl_m.asl_w {
     padding-top: 25px;
     padding-bottom: 25px;
     margin: 25px 0
+  }
+  .main__bottom-about {
+    margin-top: 50px
   }
   .main__bottom-about li {
     width: 49%;
@@ -869,7 +912,8 @@ div.asl_m.asl_w {
   }
   .main .product__items {
     -ms-grid-columns: 1fr 1fr;
-    grid-template-columns: 1fr 1fr
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 50px
   }
   .main .product__items.slider-js .slick-slide {
     padding: 0 5px 0 0;
@@ -886,15 +930,20 @@ div.asl_m.asl_w {
     left: 55%;
     transform: translateX(-45%)
   }
+  .main .woof_sid_auto_shortcode {
+    position: relative;
+    top: -48px
+  }
   .product__item {
     max-width: 165px;
+    min-height: 420px;
     padding-left: 0;
     padding-right: 0;
     margin-right: 10px!important;
     margin-left: 0!important
   }
   .product__item-name {
-    height: auto;
+    min-height: 57px;
     padding: 0 15px
   }
   .product__item-name h3 {
@@ -910,10 +959,59 @@ div.asl_m.asl_w {
     padding: 0 10px;
     font-size: 16px
   }
+  .product__item-price span {
+    letter-spacing: -.5px;
+    white-space: nowrap
+  }
+  .product__item-price .min_quantity,
+  .product__item-price .prev-price,
+  .product__item-price del {
+    font-size: 12px
+  }
+  .product__item-price .min_quantity {
+    width: 50px
+  }
   .product__item-price .woocommerce-de_price_taxrate {
     left: 10px
   }
   .product__item-price .woocommerce_de_versandkosten {
     right: 10px
+  }
+  .product__item .tinv-wraper.tinv-wishlist {
+    height: 39%
+  }
+  .sort__form {
+    max-width: 50%;
+    float: right;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0
+  }
+  .sort__form form {
+    max-width: 100%
+  }
+  .woof__mobile__btn {
+    display: block
+  }
+  .woof_redraw_zone {
+    display: none;
+    margin-top: 30px
+  }
+  .woof_container {
+    padding: 25px!important
+  }
+}
+@media screen and (max-width:320px) {
+  .main__bottom-img .right .button {
+    padding: 10px 5px;
+    left: 0;
+    bottom: -45px;
+    white-space: nowrap
+  }
+  .product__item {
+    max-width: 140px
+  }
+  .product__item-price span {
+    white-space: normal
   }
 }

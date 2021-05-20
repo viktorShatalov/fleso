@@ -1,0 +1,250 @@
+@import "main-bx";
+.main {
+    &.conatcts {
+        .main__header {
+            @include flex;
+            justify-content: space-between;
+            p {
+                width: 49%;
+                text-align: left;
+                @include to($mobile) {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+        }
+        .main__bottom {
+            @include to($mobile) {
+                margin-bottom: 30px;
+                &:last-child {
+                    margin-bottom: 150px;
+                }
+            }
+        }
+    }
+}
+.main__contact-questions {
+    h3 {
+        font-size: 26px;
+        margin: 25px 0;
+        padding-left: 38px;
+    }
+    .questions__items {
+        margin-bottom: 30px;
+    }
+    .questions__item {
+        margin-bottom: 18px;
+        border: 1px solid transparent;
+        padding: 0;
+        @include transition;
+        &.active {
+            padding-bottom: 38px;
+            border: 1px solid $orange-color;
+            h4 {
+                background-color: $orange-color;
+                &::after {
+                    transform: rotate(0);
+                }
+            }
+            P {
+                display: block;
+            }
+        }
+        h4 {
+            padding: 15px 38px;
+            width: 100%;
+            background-color: $black-color;
+            color: $white-color;
+            cursor: pointer;
+            position: relative;
+            line-height: 1;
+            @include transition;
+            &::after {
+                content: "";
+                position: absolute;
+                border: 9px solid transparent;
+                border-top: 13px solid $white-color;
+                right: 38px;
+                top: 50%;
+                transform: translateY(-50%) rotate(-90deg);
+            }
+        }
+        P {
+            padding: 38px 38px 0;
+            display: none;
+        }
+    }
+}
+.main__bottom-map {
+    display: flex;
+    margin: 20px 0;
+    @include to($mobile) {
+        flex-wrap: wrap;
+    }
+    .left {
+        width: 50%;
+        height: 345px;
+        @include to($mobile) {
+            width: 100%;
+            #map {
+                overflow: hidden;
+                padding-bottom: 97%;
+                position: relative;
+                height: 0;
+                iframe {
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                    width: 100%;
+                    position: absolute;
+                }
+            }
+        }
+    }
+    .right {
+        width: 50%;
+        border-left: 10px solid $dark_red_color;
+        background-color: $black-color;
+        color: $white-color;
+        padding: 40px;
+        height: 345px;
+        @include to($mobile) {
+            width: 100%;
+            border-left: none;
+        }
+        li {
+            margin-bottom: 43px;
+            @include to($mobile) {
+                margin-bottom: 30px;
+            }
+            a {
+                color: $white-color;
+                flex: 33px;
+                display: flex;
+                align-items: center;
+            }
+            .icon {
+                margin-right: 33px;
+            }
+        }
+        &-signature {
+            display: flex;
+            align-items: center;
+            .icon {
+                margin-right: 33px;
+            }
+        }
+    }
+}
+.main__bottom-form {
+    form {
+        background-color: $black-color;
+        padding: 48px;
+        position: relative;
+        @include to($mobile) {
+            padding: 20px;
+        }
+        label {
+            color: $white-color;
+            margin-bottom: 15px;
+            display: inline-block;
+            width: 100%;
+        }
+    }
+    .form__top {
+        @include flex;
+        justify-content: space-between;
+        &-left,
+        &-right {
+            width: 100%;
+            max-width: 495px;
+        }
+        &-left {
+            span {
+                position: relative;
+                display: inline-block;
+                width: 100%;
+                &::after {
+                    content: "";
+                    width: 2px;
+                    height: 11px;
+                    background-color: $dark_red_color;
+                    position: absolute;
+                    right: -60px;
+                    top: 53%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+    }
+    .form__control {
+        &-contacts {
+            display: block;
+            background-color: $white-color;
+            color: $black-color;
+            width: 100%;
+            border: none;
+            outline: none;
+            height: 42px;
+            padding: 8px 10px;
+            margin-bottom: 30px;
+        }
+        &-textarea {
+            width: 100%;
+            resize: none;
+            height: 130px;
+            margin-bottom: 38px;
+            padding: 8px 10px;
+        }
+        &-checkbox {
+            display: flex;
+            align-items: baseline;
+            label {
+                cursor: pointer;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+            input {
+                margin-right: 20px;
+            }
+        }
+        &-submit {
+            position: absolute;
+            bottom: -30px;
+            right: 48px;
+            width: 100%;
+            max-width: 265px;
+            input {
+                outline: none;
+                border: 1px solid $orange-color;
+                color: $white-color;
+                background-color: $orange-color;
+                color: $white-color;
+                width: 100%;
+                height: 56px;
+                padding: 16px 28px;
+                display: inline-block;
+                text-align: left;
+                cursor: pointer;
+                @include transition;
+                &:hover {
+                    background-color: $white-color;
+                    color: $orange-color;
+                }
+            }
+            svg {
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            &:hover {
+                svg {
+                    path {
+                        fill: $orange-color;
+                    }
+                }
+            }
+        }
+    }
+}

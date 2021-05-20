@@ -1,0 +1,13 @@
+.main.conatcts .main__header {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column-reverse
+}
+.main.conatcts .main__header p {
+  width: 50%
+}
+@media screen and (max-width:767px) {
+  .main.conatcts .main__header p {
+    width: 100%
+  }
+}

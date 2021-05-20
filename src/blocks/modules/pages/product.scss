@@ -19,6 +19,36 @@ div.product {
         z-index: 1;
         height: 30px;
     }
+    & > h3 {
+        font-family: $font-light;
+        position: relative;
+        padding: 20px 0;
+        margin-bottom: 38px;
+        font-weight: normal;
+        @include to($mobile) {
+            text-align: center;
+            font-size: 18px;
+        }
+        &::after,
+        &::before {
+            content: "";
+            background-color: $orange-color;
+            width: 80px;
+            height: 3px;
+            position: absolute;
+            left: 0;
+            @include to($mobile) {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        &::after {
+            bottom: 0;
+        }
+        &::before {
+            top: 0;
+        }
+    }
     div.discount {
         top: 30px;
     }
@@ -66,6 +96,9 @@ div.product {
             grid-template-columns: repeat(3, 1fr);
             grid-gap: 24px;
             margin-bottom: 65px;
+            @include to($mobile) {
+                grid-template-columns: 1fr;
+            }
             .item {
                 padding: 20px;
                 width: 100%;
@@ -76,6 +109,33 @@ div.product {
                     margin-bottom: 17px;
                     color: $orange-color;
                     text-transform: uppercase;
+                    @include transition;
+                    @include to($mobile) {
+                        position: relative;
+                        width: 100%;
+                        margin-bottom: 0;
+                        &::after {
+                            content: "+";
+                            position: absolute;
+                            right: 0px;
+                            top: 0px;
+                            @include transition;
+                        }
+                    }
+                }
+                @include to($mobile) {
+                    min-height: 1px;
+                    &.active {
+                        h4 {
+                            margin-bottom: 15px;
+                            &::after {
+                                content: "-";
+                            }
+                        }
+                    }
+                    p {
+                        display: none;
+                    }
                 }
             }
         }
@@ -87,6 +147,9 @@ div.product {
             position: relative;
             color: $white-color;
             padding: 30px 0 40px;
+            @include to($mobile) {
+                grid-template-columns: 1fr;
+            }
             &::after {
                 content: "";
                 background-color: $orange-color;
@@ -103,9 +166,15 @@ div.product {
                 padding-left: 13px;
                 display: flex;
                 justify-content: space-between;
+                @include to($mobile) {
+                    padding-left: 5px;
+                }
                 span {
                     display: inline-block;
                     flex: 0 0 50%;
+                    @include to($mobile) {
+                        font-size: 16px;
+                    }
                     &:nth-child(2) {
                         text-align: left;
                     }
@@ -164,7 +233,9 @@ div.product {
     grid-area: summary;
     width: 100%;
     max-width: 620px;
-    min-height: 500px;
+    @include to($tablet) {
+        max-width: 450px;
+    }
     ins {
         text-decoration: none !important;
     }
@@ -183,6 +254,10 @@ div.product {
         text-transform: uppercase;
         font-size: 35px;
         margin-bottom: 22px;
+        @include to($mobile) {
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
     }
     h3 {
         font-family: $font-light;
@@ -190,6 +265,10 @@ div.product {
         padding: 20px 0;
         margin-bottom: 38px;
         font-weight: normal;
+        @include to($mobile) {
+            text-align: center;
+            font-size: 18px;
+        }
         &::after,
         &::before {
             content: "";
@@ -198,6 +277,10 @@ div.product {
             height: 3px;
             position: absolute;
             left: 0;
+            @include to($mobile) {
+                left: 50%;
+                transform: translateX(-50%);
+            }
         }
         &::after {
             bottom: 0;
@@ -252,6 +335,7 @@ div.product {
     align-items: center;
     justify-content: flex-end;
     @include to($mobile) {
+        flex-wrap: nowrap;
     }
 }
 form.cart {
@@ -271,13 +355,16 @@ form.cart {
         tbody {
             @include flex;
         }
-
         tr {
             margin: 0 20px 0 0;
             display: flex;
             flex-direction: column;
             width: 100%;
             max-width: 175px;
+            @include to($mobile) {
+                max-width: 48%;
+                margin: 0 auto;
+            }
             &:last-child {
                 margin: 0;
             }
@@ -312,6 +399,9 @@ form.cart {
     }
     .quantity {
         position: relative;
+        @include to($mobile) {
+            margin-right: 20px;
+        }
         input {
             display: block;
             width: 100%;
@@ -326,6 +416,9 @@ form.cart {
             border: 1px solid rgb(241, 240, 234);
             padding: 11px 0 11px 5px;
             margin-right: 12px;
+            @include to($mobile) {
+                text-align: center;
+            }
         }
     }
     .single_add_to_cart_button {
@@ -365,6 +458,9 @@ form.cart {
         @include flex;
         align-items: center;
         margin: 20px 0;
+        @include to($mobile) {
+            justify-content: flex-end;
+        }
         .woocommerce-variation {
             &-availability {
                 display: none !important;
@@ -409,6 +505,9 @@ form.cart {
         "sliderBottom";
     grid-template-rows: 0fr 0fr 0fr;
     min-height: 500px;
+    @include to($mobile) {
+        min-height: 1px;
+    }
     &__trigger {
         display: none !important;
         position: absolute;
@@ -425,6 +524,18 @@ form.cart {
             font-weight: bold;
         }
     }
+    &__image {
+        a {
+            & > img {
+                @include to($mobiles) {
+                    margin: 0 auto !important;
+                    display: block !important;
+                    width: 100vw !important;
+                    object-fit: cover !important;
+                }
+            }
+        }
+    }
     .flex-viewport {
         grid-area: sliderTop;
     }
@@ -436,7 +547,7 @@ form.cart {
         font-size: 0;
         margin-top: 20px;
         @include to($mobile) {
-            justify-content: space-between;
+            justify-content: center;
             li {
                 margin: 5px;
                 img {
