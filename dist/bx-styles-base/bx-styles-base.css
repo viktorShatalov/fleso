@@ -47,9 +47,6 @@ body {
   color: #141414;
   margin: 0
 }
-body.overflow {
-  overflow: hidden
-}
 .container {
   width: 100%;
   max-width: 1240px;
@@ -246,6 +243,9 @@ template {
   body {
     font-size: 18px;
     line-height: 1.4
+  }
+  body.overflow {
+    overflow: hidden
   }
   .container {
     padding: 0 10px

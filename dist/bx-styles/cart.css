@@ -26,7 +26,8 @@
   max-width: 200px;
   width: 100%;
   transition: .3s ease-in-out;
-  border-radius: 0!important
+  border-radius: 0!important;
+  margin: 0!important
 }
 .checkout_coupon button.button:hover,
 .coupon button.button:hover {
@@ -55,7 +56,8 @@
   max-width: 200px;
   width: 100%;
   border-radius: 0!important;
-  transition: .3s ease-in-out
+  transition: .3s ease-in-out;
+  border: 1px solid #e27437
 }
 .woocommerce table.cart td.actions > button.button:hover {
   background-color: #004387;
@@ -79,7 +81,9 @@
   margin-top: 1.85em
 }
 .woocommerce-cart-form img {
-  max-width: 320px
+  display: block;
+  width: 100%;
+  max-width: 130px
 }
 .woocommerce-cart-form .woocommerce-Price-amount {
   color: #e27437;
@@ -116,9 +120,50 @@ form.checkout h3 {
   text-transform: uppercase;
   margin-bottom: 30px
 }
+form.checkout .order-btn-submit {
+  display: block;
+  margin: 0 0 1rem;
+  padding: .85em 1em;
+  border: 1px solid #e27437;
+  border-radius: 2px;
+  font-size: 18px;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+  background-color: #e27437;
+  color: #fff;
+  transition: .3s ease-in-out
+}
+form.checkout .order-btn-submit:hover {
+  background-color: #fff;
+  color: #e27437
+}
 #customer_details,
 .woocommerce-MyAccount-navigation {
   margin-bottom: 30px
+}
+.woocommerce-MyAccount-navigation ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between
+}
+.woocommerce-MyAccount-navigation a {
+  text-decoration: underline;
+  color: #e27437;
+  transition: .3s ease-in-out
+}
+.woocommerce-MyAccount-navigation a:hover {
+  text-decoration: none
+}
+button[name=save_account_details] {
+  margin-top: 30px!important;
+  transition: .3s ease-in-out;
+  border: 1px solid #e27437!important
+}
+button[name=save_account_details]:hover {
+  background-color: #fff!important;
+  color: #e27437!important
 }
 .show-password-input {
   top: 5px!important;
@@ -141,6 +186,42 @@ form.checkout h3 {
 }
 .select2-container--default .select2-selection--single .select2-selection__arrow {
   height: 39px
+}
+div.asl_m .probox .proclose svg {
+  background: 0 0!important
+}
+.woocommerce-EditAccountForm.edit-account p:nth-child(1),
+.woocommerce-EditAccountForm.edit-account p:nth-child(2) {
+  width: 49%!important
+}
+.woocommerce-MyAccount-content h3,
+.woocommerce-MyAccount-content p {
+  margin-bottom: 15px
+}
+.woocommerce-MyAccount-content address {
+  margin-top: 15px
+}
+.woocommerce .woocommerce-customer-details address {
+  min-height: 169px
+}
+.woocommerce table.my_account_orders a.button {
+  margin: 20px 0;
+  transition: .3s ease-in-out;
+  border: 1px solid #e27437!important
+}
+.woocommerce table.my_account_orders a.button:hover {
+  background-color: #fff;
+  color: #e27437
+}
+a.button.wc-backward {
+  transition: .3s ease-in-out;
+  border: 1px solid #e27437!important;
+  max-width: 200px!important;
+  display: block!important
+}
+a.button.wc-backward:hover {
+  background-color: #fff;
+  color: #e27437
 }
 @media screen and (max-width:767px) {
   .checkout_coupon input.input-text,
@@ -171,5 +252,23 @@ form.checkout h3 {
     width: 100%;
     text-align: center;
     margin-bottom: 20px!important
+  }
+  .woocommerce-cart-form .product-thumbnail {
+    display: block!important
+  }
+  .woocommerce-cart-form .product-thumbnail img {
+    margin: -20px 0 0;
+    max-width: 100%
+  }
+  .woocommerce-cart-form .woocommerce table.shop_table_responsive tr td::before,
+  .woocommerce-cart-form .woocommerce-page table.shop_table_responsive tr td::before {
+    content: none!important
+  }
+  .woocommerce-MyAccount-navigation ul {
+    justify-content: space-evenly
+  }
+  .woocommerce-EditAccountForm.edit-account p:nth-child(1),
+  .woocommerce-EditAccountForm.edit-account p:nth-child(2) {
+    width: 100%!important
   }
 }

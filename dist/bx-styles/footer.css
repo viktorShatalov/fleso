@@ -57,7 +57,7 @@
   flex: 0 0 50%
 }
 .footer__right-pay_method {
-  margin-top: 20px
+  margin: 20px auto 0
 }
 .footer__right-pay_method p {
   text-transform: uppercase;
@@ -154,19 +154,33 @@
 .wpcf7-not-valid-tip {
   font-size: .85em;
   white-space: nowrap;
-  position: absolute;
-  left: 10px;
-  top: -2px
+  position: absolute!important;
+  right: 5px;
+  top: 10px;
+  display: inline-block;
+  width: auto!important
+}
+.wpcf7-not-valid-tip::after {
+  content: none!important
+}
+input.wpcf7-not-valid {
+  border: 1px solid red!important
 }
 .wpcf7 .ajax-loader {
   position: absolute
 }
-.wpcf7 form .wpcf7-response-output {
+.wpcf7-form-control-wrap {
+  display: inline-block;
+  width: 100%
+}
+.wpcf7-response-output {
   margin: 10px auto;
   padding: .2em;
-  border: 0 solid #000;
   font-size: .85em;
-  color: #141414
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 48px
 }
 div.wpcf7 .ajax-loader {
   display: none
@@ -194,9 +208,6 @@ div.wpcf7 .ajax-loader {
 #footer_checker .button_checker:hover {
   background-color: #004387
 }
-#footer_checker .wpcf7-not-valid-tip {
-  display: none
-}
 div.wpcf7 .wpcf7-submit:disabled {
   cursor: not-allowed!important
 }
@@ -208,8 +219,13 @@ div.wpcf7 .wpcf7-submit:disabled {
 .contact__forms_container {
   width: 100%
 }
+.wpcf7-list-item {
+  margin: 0!important
+}
 .coupon input.input-text,
-.form__control {
+.form__control,
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row textarea {
   display: block;
   width: 100%;
   height: 2.4375rem;
@@ -225,52 +241,70 @@ div.wpcf7 .wpcf7-submit:disabled {
   transition: .3s ease-in-out
 }
 .coupon input.input-text::-moz-placeholder,
-.form__control::-moz-placeholder {
+.form__control::-moz-placeholder,
+.woocommerce form .form-row input.input-text::-moz-placeholder,
+.woocommerce form .form-row textarea::-moz-placeholder {
   font-family: inherit;
   font-size: 1rem;
   font-weight: 400
 }
 .coupon input.input-text:-ms-input-placeholder,
-.form__control:-ms-input-placeholder {
+.form__control:-ms-input-placeholder,
+.woocommerce form .form-row input.input-text:-ms-input-placeholder,
+.woocommerce form .form-row textarea:-ms-input-placeholder {
   font-family: inherit;
   font-size: 1rem;
   font-weight: 400
 }
 .coupon input.input-text::placeholder,
-.form__control::placeholder {
+.form__control::placeholder,
+.woocommerce form .form-row input.input-text::placeholder,
+.woocommerce form .form-row textarea::placeholder {
   font-family: inherit;
   font-size: 1rem;
   font-weight: 400
 }
 .coupon input.input-text:focus,
-.form__control:focus {
+.form__control:focus,
+.woocommerce form .form-row input.input-text:focus,
+.woocommerce form .form-row textarea:focus {
   outline: 0;
   border: 1px solid #5d5d5d;
   background-color: #fefefe;
   box-shadow: 0 0 5px #818181
 }
 .coupon input.input-text.textarea,
-.form__control.textarea {
+.form__control.textarea,
+.woocommerce form .form-row input.input-text.textarea,
+.woocommerce form .form-row textarea.textarea {
   resize: vertical;
   width: 100%;
   height: 50px
 }
-.form__control_btn {
+.form__control_btn,
+.woocommerce #respond input#submit,
+.woocommerce .woocommerce-form-login .woocommerce-form-login__submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
   display: block;
   margin: 0 0 1rem;
   padding: .85em 1em;
   border: 1px solid transparent;
   border-radius: 2px;
-  font-size: .9rem;
+  font-size: 18px;
   line-height: 1;
   text-align: center;
   cursor: pointer;
-  background-color: #004f9e;
-  color: #fff;
-  transition: .3s ease-in-out
+  background-color: #e27437;
+  color: #fff
 }
-.form__control_btn:hover {
-  background-color: #004387
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row textarea {
+  background-color: #fff!important
+}
+.woocommerce .woocommerce-form-login .woocommerce-form-login__rememberme {
+  margin-left: 10px
 }
 nav.woocommerce-breadcrumb {
   margin: 1.5em 0
@@ -305,6 +339,15 @@ nav.woocommerce-breadcrumb a:hover {
 .woocommerce ul.products li.product a img {
   margin: 0
 }
+.woocommerce form.login,
+.woocommerce form.register {
+  min-height: 382px
+}
+@media screen and (max-width:1200px) {
+  .footer > .container {
+    padding-top: 100px
+  }
+}
 @media screen and (max-width:767px) {
   .footer {
     background-color: #e27437;
@@ -314,7 +357,7 @@ nav.woocommerce-breadcrumb a:hover {
     content: none
   }
   .footer > .container {
-    padding-top: 75px;
+    padding-top: 100px;
     padding-bottom: 0
   }
   .footer > .container::after {
@@ -322,11 +365,12 @@ nav.woocommerce-breadcrumb a:hover {
   }
   .footer__left {
     position: relative;
-    padding-bottom: 30px
+    padding-bottom: 30px;
+    max-width: 100%
   }
   .footer__left::after {
     content: "";
-    width: calc(100% + 20px);
+    width: calc(200% + 20px);
     height: 12px;
     position: absolute;
     left: -10px;
@@ -398,6 +442,6 @@ nav.woocommerce-breadcrumb a:hover {
 @media screen and (min-width:767px) and (max-width:1200px) {
   .footer__left,
   .footer__right {
-    max-width: 430px
+    max-width: 46%
   }
 }

@@ -30,6 +30,7 @@
         width: 100%;
         @include transition;
         border-radius: 0 !important;
+        margin: 0 !important;
         &:hover {
             background-color: $blue_hover-color;
             color: $white-color;
@@ -87,6 +88,7 @@
         width: 100%;
         border-radius: 0 !important;
         @include transition;
+        border: 1px solid $orange-color;
         &:hover {
             background-color: $blue_hover-color;
             color: $white-color;
@@ -114,13 +116,30 @@
 }
 .woocommerce-cart-form {
     margin-top: 1.85em;
+    .product-thumbnail {
+        @include to($mobile) {
+            display: block !important;
+            img {
+                margin: -20px 0 0;
+                max-width: 100%;
+            }
+        }
+    }
     img {
-        max-width: 320px;
+        display: block;
+        width: 100%;
+        max-width: 130px;
     }
     .woocommerce-Price-amount {
         color: $orange-color;
         font-size: 24px;
         font-family: $font-bold;
+    }
+    @include to($mobile) {
+        .woocommerce table.shop_table_responsive tr td::before,
+        .woocommerce-page table.shop_table_responsive tr td::before {
+            content: none !important;
+        }
     }
 }
 .woocommerce-checkout {
@@ -164,12 +183,58 @@ form.checkout {
         text-transform: uppercase;
         margin-bottom: 30px;
     }
+    .order-btn-submit {
+        display: block;
+        margin: 0 0 1rem 0;
+        padding: 0.85em 1em;
+        border: 1px solid transparent;
+        border-radius: 2px;
+        font-size: 18px;
+        line-height: 1;
+        text-align: center;
+        cursor: pointer;
+        background-color: $orange-color;
+        color: $white-color;
+        @include transition;
+        border: 1px solid $orange-color;
+        &:hover {
+            background-color: $white-color;
+            color: $orange-color;
+        }
+    }
 }
 #customer_details {
     margin-bottom: 30px;
 }
 .woocommerce-MyAccount-navigation {
     margin-bottom: 30px;
+    ul {
+        @include flex;
+        align-items: center;
+        justify-content: space-between;
+        @include to($mobile) {
+            justify-content: space-evenly;
+        }
+    }
+    a {
+        text-decoration: underline;
+        color: $orange-color;
+        @include transition;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+button {
+    &[name="save_account_details"] {
+        margin-top: 30px !important;
+        @include transition;
+        border: 1px solid $orange-color !important;
+        &:hover {
+            background-color: $white-color !important;
+            color: $orange-color !important;
+        }
+    }
 }
 .show-password-input {
     top: 5px !important;
@@ -193,4 +258,51 @@ form.checkout {
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {
     height: 39px;
+}
+div.asl_m .probox .proclose svg {
+    background: transparent !important;
+}
+.woocommerce-EditAccountForm.edit-account {
+    p {
+        &:nth-child(1),
+        &:nth-child(2) {
+            width: 49% !important;
+            @include to($mobile) {
+                width: 100% !important;
+            }
+        }
+    }
+}
+.woocommerce-MyAccount-content {
+    p,
+    h3 {
+        margin-bottom: 15px;
+    }
+    address {
+        margin-top: 15px;
+    }
+}
+.woocommerce .woocommerce-customer-details address {
+    min-height: 169px;
+}
+.woocommerce table.my_account_orders {
+    a.button {
+        margin: 20px 0;
+        @include transition;
+        border: 1px solid $orange-color !important;
+        &:hover {
+            background-color: $white-color;
+            color: $orange-color;
+        }
+    }
+}
+a.button.wc-backward {
+    @include transition;
+    border: 1px solid $orange-color !important;
+    max-width: 200px !important;
+    display: block !important;
+    &:hover {
+        background-color: $white-color;
+        color: $orange-color;
+    }
 }

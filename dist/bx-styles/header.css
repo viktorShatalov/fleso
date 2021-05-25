@@ -71,7 +71,8 @@
 .header__top--right li a {
   display: flex;
   align-items: center;
-  transition: .3s ease-in-out
+  transition: .3s ease-in-out;
+  white-space: nowrap
 }
 .header__top--right li::after {
   content: "";
@@ -261,7 +262,8 @@
   background-color: #e27437;
   position: absolute;
   top: -10px;
-  left: 0
+  left: 0;
+  z-index: 4
 }
 .header__bottom-menu a {
   display: flex;
@@ -344,57 +346,38 @@
   top: unset;
   bottom: 0
 }
-@media screen and (max-width:1024px) {
-  .header__center-logo .img {
-    max-width: 180px
-  }
-}
-@media screen and (max-width:767px) {
-  .header {
-    position: sticky;
-    top: 0;
-    z-index: 20
-  }
-  .header.shadow {
-    box-shadow: 1px 1px 5px 2px rgba(0,0,0,.205)
-  }
+@media screen and (max-width:1200px) {
   .header__top .container {
     flex-wrap: nowrap
   }
   .header__top--left {
-    border-right: none;
-    justify-content: space-between;
-    flex-direction: row-reverse;
-    padding: 8px 5% 8px 0;
-    width: 30%
+    padding-right: 0;
+    width: 38%;
+    border-right: none
   }
   .header__top--left li {
-    width: 40px;
-    margin-right: 0
+    width: 100%
   }
-  .header__top--left li.phone img,
-  .header__top--left li.phone svg {
-    width: 75%
+  .header__top--left li svg {
+    width: 33px
   }
   .header__top--left li:first-child {
     margin-right: 0
   }
   .header__top--left li a span {
-    display: none
-  }
-  .header__top--left svg {
-    margin-right: 0
+    display: block;
+    white-space: nowrap
   }
   .header__top--right {
     margin: 0;
     justify-content: space-between;
     align-items: center;
     flex-direction: row-reverse;
-    width: 70%;
-    padding: 8px 0
+    width: 60%;
+    padding: 8px 0 8px 5%
   }
   .header__top--right li {
-    width: 40px;
+    width: 33px;
     margin: 0
   }
   .header__top--right li.facebooke {
@@ -436,20 +419,73 @@
     width: 100%;
     height: 100%
   }
+  .header__center-search {
+    max-width: 250px
+  }
+}
+@media screen and (max-width:1024px) {
+  .header__center-logo .img {
+    max-width: 180px
+  }
+  .header__bottom-menu .menu {
+    justify-content: space-around
+  }
+  .header__bottom-menu .menu li.menu__item span.icon {
+    display: none
+  }
+  .header__bottom-menu .menu li.menu__item:last-child span.icon {
+    margin-left: 0;
+    margin-right: 13px
+  }
+  .header__bottom-menu .menu li.menu__item:last-child > a {
+    flex-direction: row
+  }
+}
+@media screen and (max-width:767px) {
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 20
+  }
+  .header.shadow {
+    box-shadow: 1px 1px 5px 2px rgba(0,0,0,.205)
+  }
+  .header__top--left {
+    border-right: none;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    padding: 8px 5% 8px 0;
+    width: 36%
+  }
+  .header__top--left li {
+    width: 40px;
+    margin-right: 0
+  }
+  .header__top--left li.phone img,
+  .header__top--left li.phone svg {
+    width: 75%
+  }
+  .header__top--left li a span {
+    display: none
+  }
+  .header__top--left svg {
+    margin-right: 0
+  }
   .header__center {
     background-color: #fff;
-    padding-top: 10px
+    padding-top: 16px;
+    padding-bottom: 16px
   }
   .header__center-mobile--menu {
     display: flex
   }
   .header__center-logo .img {
-    max-width: 190px
+    max-width: 175px
   }
   .header__center-logo .timer {
     max-width: 20px;
-    right: -13px;
-    top: -13px
+    right: -12px;
+    top: -12px
   }
   .header__center-search {
     display: none;
@@ -462,7 +498,8 @@
   }
   .header__center-cabinet > a,
   .header__center-cart > a {
-    max-width: 45px
+    max-width: 45px;
+    height: 40px
   }
   .header__center-cabinet > a span,
   .header__center-cart > a span {
@@ -475,11 +512,14 @@
     display: none;
     width: 100%;
     height: 100%;
-    position: absolute;
+    left: 0;
+    top: 120px;
+    position: fixed;
     z-index: 5;
     background-color: #fff;
     padding-top: 20px;
-    height: 100vh
+    padding-bottom: 20px;
+    overflow: auto
   }
   .header__bottom a {
     color: #141414
@@ -487,24 +527,21 @@
   .header__bottom:after {
     top: 0
   }
-  .header__bottom-menu {
-    overflow: auto
+  .header__bottom::after {
+    position: fixed;
+    top: 120px
   }
+  .header__bottom-menu.active {
+    height: 800px
+  }
+  .header__bottom-menu .menu,
   .header__bottom-menu a {
     justify-content: center
-  }
-  .header__bottom-menu .menu {
-    justify-content: center;
-    overflow: auto
   }
   .header__bottom-menu .menu li.menu__item {
     width: 100%;
     padding: 5px 0;
     text-transform: uppercase
-  }
-  .header__bottom-menu .menu li.menu__item span.icon {
-    display: none;
-    justify-content: center
   }
   .header__bottom-menu .sub__menu {
     background-color: transparent;
@@ -536,8 +573,9 @@
     top: 120px
   }
   .header__bottom.fixed::after {
-    top: 0;
-    bottom: unset
+    top: 120px;
+    bottom: unset;
+    position: fixed
   }
 }
 @media screen and (max-width:320px) {

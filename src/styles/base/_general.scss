@@ -16,12 +16,12 @@ body {
     line-height: 1.2;
     overflow-x: hidden;
     color: $black-color;
-    &.overflow {
-        overflow: hidden;
-    }
     @include to($mobile) {
         font-size: 18px;
         line-height: 1.4;
+        &.overflow {
+            overflow: hidden;
+        }
     }
 }
 .container {

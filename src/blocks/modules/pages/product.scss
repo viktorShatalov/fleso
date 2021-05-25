@@ -18,6 +18,10 @@ div.product {
         padding: 5px 10px;
         z-index: 1;
         height: 30px;
+        min-width: 100px;
+    }
+    div.discount {
+        top: 33px;
     }
     & > h3 {
         font-family: $font-light;
@@ -49,8 +53,8 @@ div.product {
             top: 0;
         }
     }
-    div.discount {
-        top: 30px;
+    h1 {
+        text-align: center;
     }
     a {
         color: $orange-color;
@@ -94,7 +98,7 @@ div.product {
             width: 100%;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-gap: 24px;
+            gap: 24px;
             margin-bottom: 65px;
             @include to($mobile) {
                 grid-template-columns: 1fr;
@@ -105,6 +109,9 @@ div.product {
                 max-width: 375px;
                 border: 1px solid #f1f0ea;
                 min-height: 171px;
+                @include to($mobile) {
+                    max-width: 100%;
+                }
                 h4 {
                     margin-bottom: 17px;
                     color: $orange-color;
@@ -143,7 +150,7 @@ div.product {
             width: 100%;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            grid-gap: 0 60px;
+            gap: 0 60px;
             position: relative;
             color: $white-color;
             padding: 30px 0 40px;
@@ -183,7 +190,8 @@ div.product {
         }
     }
 }
-.related {
+.related,
+.up-sells {
     margin-top: 50px;
     width: 100%;
     grid-area: related;
@@ -194,6 +202,16 @@ div.product {
             .shipping_de {
                 display: none !important;
             }
+            .discount {
+                top: 0;
+                width: 100%;
+            }
+        }
+        .slick-slide {
+            padding: 0 6px;
+        }
+        .product__item {
+            max-width: 100% !important;
         }
     }
     h2 {
@@ -235,6 +253,7 @@ div.product {
     max-width: 620px;
     @include to($tablet) {
         max-width: 450px;
+        margin: 0 auto;
     }
     ins {
         text-decoration: none !important;
@@ -257,6 +276,7 @@ div.product {
         @include to($mobile) {
             font-size: 26px;
             margin-bottom: 15px;
+            text-align: center;
         }
     }
     h3 {
@@ -328,6 +348,9 @@ div.product {
             font-size: 12px;
             color: $grey-color;
         }
+    }
+    .ajaxerrors {
+        display: none !important;
     }
 }
 .woocommerce-variation-add-to-cart {
@@ -452,6 +475,7 @@ form.cart {
             font-size: 1em;
             white-space: nowrap;
             width: 100%;
+            max-width: 55%;
         }
     }
     .single_variation_wrap {
@@ -505,6 +529,9 @@ form.cart {
         "sliderBottom";
     grid-template-rows: 0fr 0fr 0fr;
     min-height: 500px;
+    @include to($tablet) {
+        margin: 0 auto;
+    }
     @include to($mobile) {
         min-height: 1px;
     }
@@ -522,18 +549,6 @@ form.cart {
             content: "";
             color: $orange-color;
             font-weight: bold;
-        }
-    }
-    &__image {
-        a {
-            & > img {
-                @include to($mobiles) {
-                    margin: 0 auto !important;
-                    display: block !important;
-                    width: 100vw !important;
-                    object-fit: cover !important;
-                }
-            }
         }
     }
     .flex-viewport {
@@ -558,13 +573,22 @@ form.cart {
         }
         li {
             margin: 0 5px;
-            border: 1px solid $grey-color;
             cursor: pointer;
             img {
                 width: 100px;
                 display: block;
                 height: 100px;
                 object-fit: contain;
+                border: 1px solid $grey-color;
+                opacity: 0.8;
+                @include transition;
+                &:hover {
+                    opacity: 1;
+                }
+                &.flex-active {
+                    border: 1px solid $orange-color;
+                    opacity: 1;
+                }
             }
         }
     }

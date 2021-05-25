@@ -44,6 +44,7 @@
                 background-color: $orange-color;
                 &::after {
                     transform: rotate(0);
+                    top: 40%;
                 }
             }
             P {
@@ -84,6 +85,9 @@
     .left {
         width: 50%;
         height: 345px;
+        iframe {
+            width: 100%;
+        }
         @include to($mobile) {
             width: 100%;
             #map {
@@ -137,6 +141,11 @@
     }
 }
 .main__bottom-form {
+    position: relative;
+    margin-bottom: 50px;
+    br {
+        display: none;
+    }
     form {
         background-color: $black-color;
         padding: 48px;
@@ -158,6 +167,9 @@
         &-right {
             width: 100%;
             max-width: 495px;
+            @include to($laptop) {
+                max-width: 100%;
+            }
         }
         &-left {
             span {
@@ -171,8 +183,7 @@
                     background-color: $dark_red_color;
                     position: absolute;
                     right: -60px;
-                    top: 53%;
-                    transform: translateY(-50%);
+                    top: 15px;
                 }
             }
         }
@@ -207,6 +218,11 @@
             input {
                 margin-right: 20px;
             }
+            & > span {
+                &.wpcf7-form-control-wrap {
+                    width: auto;
+                }
+            }
         }
         &-submit {
             position: absolute;
@@ -232,16 +248,22 @@
                     color: $orange-color;
                 }
             }
-            svg {
-                position: absolute;
-                right: 20px;
-                top: 50%;
-                transform: translateY(-50%);
-            }
             &:hover {
                 svg {
                     path {
                         fill: $orange-color;
+                    }
+                }
+            }
+            svg {
+                cursor: pointer;
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                &:hover {
+                    path {
+                        fill: $white-color;
                     }
                 }
             }

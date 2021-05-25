@@ -18,7 +18,7 @@
         font-size: 16px;
         .container {
             @include flex;
-            @include to($mobile) {
+            @include to($laptop) {
                 flex-wrap: nowrap;
             }
         }
@@ -31,13 +31,18 @@
             align-items: center;
             padding-right: 44px;
             border-right: 9px solid $dark_red_color;
+            @include to($laptop) {
+                padding-right: 0;
+                width: 38%;
+                border-right: none;
+            }
             @include to($mobile) {
                 border-right: none;
                 justify-content: space-between;
                 flex-direction: row-reverse;
                 padding: 8px 0;
                 padding-right: 5%;
-                width: 30%;
+                width: 36%;
             }
             &::before {
                 content: "";
@@ -50,6 +55,12 @@
                 height: 100%;
             }
             li {
+                @include to($laptop) {
+                    width: 100%;
+                    svg {
+                        width: 33px;
+                    }
+                }
                 @include to($mobile) {
                     width: 40px;
                     margin-right: 0;
@@ -62,7 +73,7 @@
                 }
                 &:first-child {
                     margin-right: 36px;
-                    @include to($mobile) {
+                    @include to($laptop) {
                         margin-right: 0;
                     }
                 }
@@ -71,6 +82,10 @@
                     align-items: center;
                     span {
                         display: table;
+                        @include to($laptop) {
+                            display: block;
+                            white-space: nowrap;
+                        }
                         @include to($mobile) {
                             display: none;
                         }
@@ -93,14 +108,14 @@
             padding: 15px 0;
             display: flex;
             margin-left: auto;
-            @include to($mobile) {
+            @include to($laptop) {
                 margin: 0;
                 justify-content: space-between;
                 align-items: center;
                 flex-direction: row-reverse;
                 width: inherit;
-                width: 70%;
-                padding: 8px 0;
+                width: 60%;
+                padding: 8px 0 8px 5%;
             }
             li {
                 margin: 0 25px;
@@ -108,8 +123,8 @@
                 @include from-to($mobile, $tablet) {
                     margin: 0 15px;
                 }
-                @include to($mobile) {
-                    width: 40px;
+                @include to($laptop) {
+                    width: 33px;
                     margin: 0;
                     &.facebooke {
                         background-color: $white-color;
@@ -128,8 +143,9 @@
                     display: flex;
                     align-items: center;
                     @include transition;
+                    white-space: nowrap;
                     span {
-                        @include to($mobile) {
+                        @include to($laptop) {
                             display: none;
                         }
                     }
@@ -142,14 +158,14 @@
                     position: absolute;
                     right: -25px;
                     top: 0;
-                    @include to($mobile) {
+                    @include to($laptop) {
                         content: none;
                     }
                 }
                 img,
                 svg {
                     margin-right: 12px;
-                    @include to($mobile) {
+                    @include to($laptop) {
                         margin-right: 0;
                     }
                 }
@@ -160,7 +176,7 @@
                     svg {
                         path {
                             fill: $orange-color;
-                            @include to($mobile) {
+                            @include to($laptop) {
                                 fill: $white-color;
                             }
                         }
@@ -171,7 +187,7 @@
                     svg,
                     img {
                         margin-right: 0;
-                        @include to($mobile) {
+                        @include to($laptop) {
                             height: 30px;
                         }
                     }
@@ -181,7 +197,7 @@
                 }
             }
         }
-        @include to($mobile) {
+        @include to($laptop) {
             background-color: $orange-color;
             margin-bottom: 0px;
             svg,
@@ -199,7 +215,8 @@
         padding-bottom: 50px;
         @include to($mobile) {
             background-color: $white-color;
-            padding-top: 10px;
+            padding-top: 16px;
+            padding-bottom: 16px;
         }
         a {
             color: $black-color;
@@ -247,7 +264,7 @@
                     max-width: 180px;
                 }
                 @include to($mobile) {
-                    max-width: 190px;
+                    max-width: 175px;
                 }
                 @include to($mobiles) {
                     max-width: 145px;
@@ -263,8 +280,8 @@
                 }
                 @include to($mobile) {
                     max-width: 20px;
-                    right: -13px;
-                    top: -13px;
+                    right: -12px;
+                    top: -12px;
                 }
             }
         }
@@ -277,6 +294,9 @@
             width: 100%;
             max-width: 485px;
             position: relative;
+            @include to($laptop) {
+                max-width: 250px;
+            }
             @include to($mobile) {
                 display: none;
                 position: absolute;
@@ -321,6 +341,7 @@
                 text-align: center;
                 @include to($mobile) {
                     max-width: 45px;
+                    height: 40px;
                 }
                 span {
                     @include transition;
@@ -376,11 +397,14 @@
             display: none;
             width: 100%;
             height: 100%;
-            position: absolute;
+            left: 0;
+            top: 120px;
+            position: fixed;
             z-index: 5;
             background-color: $white-color;
             padding-top: 20px;
-            height: 100vh;
+            padding-bottom: 20px;
+            overflow: auto;
             a {
                 color: $black-color;
             }
@@ -399,10 +423,17 @@
             position: absolute;
             top: -10px;
             left: 0;
+            z-index: 4;
+            @include to($mobile) {
+                position: fixed;
+                top: 120px;
+            }
         }
         &-menu {
             @include to($mobile) {
-                overflow: auto;
+                &.active {
+                    height: 800px;
+                }
             }
             a {
                 display: flex;
@@ -427,9 +458,11 @@
                 @include flex;
                 align-items: center;
                 justify-content: space-between;
+                @include to($tablet) {
+                    justify-content: space-around;
+                }
                 @include to($mobile) {
                     justify-content: center;
-                    overflow: auto;
                 }
                 li.menu__item {
                     position: relative;
@@ -445,19 +478,25 @@
                         display: flex;
                         align-items: center;
                         margin-right: 13px;
-                        @include to($mobile) {
+                        @include to($tablet) {
                             display: none;
-                            justify-content: center;
                         }
                     }
                     &:last-child {
                         span.icon {
                             margin-right: 0;
                             margin-left: 13px;
+                            @include to($tablet) {
+                                margin-left: 0;
+                                margin-right: 13px;
+                            }
                         }
                         & > a {
                             display: flex;
                             flex-direction: row-reverse;
+                            @include to($tablet) {
+                                flex-direction: row;
+                            }
                         }
                         .sub__menu {
                             left: unset;
@@ -536,8 +575,9 @@
             @include to($mobile) {
                 top: 120px;
                 &::after {
-                    top: 0;
+                    top: 120px;
                     bottom: unset;
+                    position: fixed;
                 }
             }
             &::after {

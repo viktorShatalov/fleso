@@ -28,8 +28,11 @@
         flex-wrap: wrap;
         justify-content: space-between;
         font-size: 18px;
+        @include to($laptop) {
+            padding-top: 100px;
+        }
         @include to($mobile) {
-            padding-top: 75px;
+            padding-top: 100px;
             padding-bottom: 0;
         }
         &::after {
@@ -59,14 +62,15 @@
         width: 100%;
         max-width: 530px;
         @include from-to($mobile, $laptop) {
-            max-width: 430px;
+            max-width: 46%;
         }
         @include to($mobile) {
             position: relative;
             padding-bottom: 30px;
+            max-width: 100%;
             &::after {
                 content: "";
-                width: calc(100% + 20px);
+                width: calc(200% + 20px);
                 height: 12px;
                 position: absolute;
                 left: -10px;
@@ -81,7 +85,7 @@
         @include flex;
         justify-content: space-between;
         @include from-to($mobile, $laptop) {
-            max-width: 430px;
+            max-width: 46%;
         }
         @include to($mobile) {
             background-color: $black-color;
@@ -113,7 +117,7 @@
             }
         }
         &-pay_method {
-            margin-top: 20px;
+            margin: 20px auto 0;
             p {
                 text-transform: uppercase;
                 font-family: $font-bold;
@@ -257,19 +261,33 @@
 .wpcf7-not-valid-tip {
     font-size: 0.85em;
     white-space: nowrap;
-    position: absolute;
-    left: 10px;
-    top: -2px;
+    position: absolute !important;
+    right: 5px;
+    top: 10px;
+    display: inline-block;
+    width: auto !important;
+    &::after {
+        content: none !important;
+    }
+}
+input.wpcf7-not-valid {
+    border: 1px solid red !important;
 }
 .wpcf7 .ajax-loader {
     position: absolute;
 }
-.wpcf7 form .wpcf7-response-output {
+.wpcf7-form-control-wrap {
+    display: inline-block;
+    width: 100%;
+}
+.wpcf7-response-output {
     margin: 10px auto;
     padding: 0.2em 0.2em;
-    border: 0px solid black;
     font-size: 0.85em;
-    color: $black-color;
+    color: $white-color;
+    position: absolute;
+    bottom: 0;
+    left: 48px;
 }
 div.wpcf7 .ajax-loader {
     display: none;
@@ -296,9 +314,6 @@ div.wpcf7 .ajax-loader {
             background-color: $blue_hover-color;
         }
     }
-    .wpcf7-not-valid-tip {
-        display: none;
-    }
 }
 div.wpcf7 .wpcf7-submit:disabled {
     cursor: not-allowed !important;
@@ -314,8 +329,13 @@ div.wpcf7 .wpcf7-submit:disabled {
 .contact__forms_container {
     width: 100%;
 }
+.wpcf7-list-item {
+    margin: 0 !important;
+}
 .form__control,
-.coupon input.input-text {
+.coupon input.input-text,
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row textarea {
     display: block;
     width: 100%;
     height: 2.4375rem;
@@ -347,25 +367,34 @@ div.wpcf7 .wpcf7-submit:disabled {
         height: 50px;
     }
 }
-.form__control_btn {
+.form__control_btn,
+.woocommerce .woocommerce-form-login .woocommerce-form-login__submit,
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
     display: block;
     margin: 0 0 1rem 0;
     padding: 0.85em 1em;
     border: 1px solid transparent;
     border-radius: 2px;
-    font-size: 0.9rem;
+    font-size: 18px;
     line-height: 1;
     text-align: center;
     cursor: pointer;
-    background-color: $blue-color;
+    background-color: $orange-color;
     color: $white-color;
-    @include transition;
-    &:hover {
-        background-color: $blue_hover-color;
-    }
 }
 
 // woocomerce
+
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row textarea {
+    background-color: $white-color !important;
+}
+.woocommerce .woocommerce-form-login .woocommerce-form-login__rememberme {
+    margin-left: 10px;
+}
 
 nav.woocommerce-breadcrumb {
     margin: 1.5em 0;
@@ -408,4 +437,8 @@ nav.woocommerce-breadcrumb {
             }
         }
     }
+}
+.woocommerce form.login,
+.woocommerce form.register {
+    min-height: 382px;
 }

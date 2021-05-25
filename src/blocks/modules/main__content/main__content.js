@@ -18,6 +18,7 @@ jQuery(document).ready(function ($) {
     $(".header__bottom-menu ul.sub__menu").attr("data-content", "").on("click", function () {
         $(this).children("li.sub__menu-item").toggle("show")
         $(this).toggleClass("active")
+        $(".header__bottom-menu").addClass("active")
     })
 
     // header search mobile
@@ -31,24 +32,32 @@ jQuery(document).ready(function ($) {
     let next = `<button type="button" class="slick-next"><svg xmlns="http://www.w3.org/2000/svg" width="29.448" height="14.474" viewBox="0 0 29.448 14.474"> <path id="long-arrow-alt-right" d="M20.636,14.867H.789A.789.789,0,0,0,0,15.656v3.681a.789.789,0,0,0,.789.789H20.636v3.028a1.578,1.578,0,0,0,2.693,1.115l5.657-5.657a1.577,1.577,0,0,0,0-2.231l-5.657-5.657a1.578,1.578,0,0,0-2.693,1.115Z" transform="translate(0 -10.26)" fill="#ebe9e0"/> </svg></button>`
 
     $(".slider-js").slick({
-        slidesToShow: 3,
+        slidesToShow: 2,
         slidesToScroll: 2,
         dots: false,
         infinite: false,
         arrows: true,
         prevArrow: prev,
         nextArrow: next,
+        mobileFirst: true,
         responsive: [{
-            breakpoint: 767,
+            breakpoint: 1024,
             settings: {
-                slidesToShow: 2,
+                slidesToShow: 3,
                 slidesToScroll: 2,
             }
-        }]
+        }],
+        // responsive: [{
+        //     breakpoint: 767,
+        //     settings: {
+        //         slidesToShow: 2,
+        //         slidesToScroll: 2,
+        //     }
+        // }]
 
     })
 
-    $(".related .product__items").slick({
+    $(".related .product__items,.up-sells .product__items").slick({
         slidesToShow: 4,
         slidesToScroll: 2,
         dots: false,
@@ -79,6 +88,7 @@ jQuery(document).ready(function ($) {
     if (width <= 767) {
         $(".summary.entry-summary h3").prependTo($("div.product"))
         $(".product_title.entry-title").prependTo($("div.product"))
+        $("div[id^='product-'] div.onsale, div[id^='product-'] div.discount, div[id^='product-'] div.sale").prependTo($(".woocommerce-product-gallery"))
 
         $(document).on('scroll', function () {
             let height = $(window).scrollTop();
@@ -89,43 +99,8 @@ jQuery(document).ready(function ($) {
                 $(".header").removeClass("shadow")
             }
         });
-
-        // 
-        $(".woocommerce-product-gallery__image").children("a img").css({
-            "width": "100vw",
-            "display": "block",
-            "objectFit": "cover"
-        })
     }
 
-
-    // webp
-    // Проверяем, можно ли использовать Webp формат
-    function canUseWebp() {
-        let elem = document.createElement('canvas');
-        if (!!(elem.getContext && elem.getContext('2d'))) {
-            return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
-        }
-        return false;
-    }
-
-    let images = document.querySelectorAll('[data-bg]');
-    for (let i = 0; i < images.length; i++) {
-        let image = images[i].getAttribute('data-bg');
-        images[i].style.backgroundImage = 'url(' + image + ')';
-    }
-    // Проверяем, является ли браузер посетителя сайта Firefox и получаем его версию
-    const isitFirefox = window.navigator.userAgent.match(/Firefox\/([0-9]+)\./);
-    const firefoxVer = isitFirefox ? parseInt(isitFirefox[1]) : 0;
-
-    // Если есть поддержка Webp или браузер Firefox версии больше или равно 65
-    if (canUseWebp() || firefoxVer >= 65) {
-        let imagesWebp = document.querySelectorAll('[data-bg-webp]');
-        for (let i = 0; i < imagesWebp.length; i++) {
-            let imageWebp = imagesWebp[i].getAttribute('data-bg-webp');
-            imagesWebp[i].style.backgroundImage = 'url(' + imageWebp + ')';
-        }
-    }
 
     // woof settings
 
@@ -150,6 +125,9 @@ jQuery(document).ready(function ($) {
     $(".woof__mobile__btn").on("click", function () {
         $(".woof_redraw_zone").toggle("show")
     })
+
+
+    // end woof settings
 
     // header menu sticky   
 
@@ -176,5 +154,7 @@ jQuery(document).ready(function ($) {
 
         $(this).parent().toggleClass("active")
     })
+    let contactFormBtn = `<svg xmlns="http://www.w3.org/2000/svg" width="29.448" height="14.474" viewBox="0 0 29.448 14.474"><path id="long-arrow-alt-right" d="M20.636,14.867H.789A.789.789,0,0,0,0,15.656v3.681a.789.789,0,0,0,.789.789H20.636v3.028a1.578,1.578,0,0,0,2.693,1.115l5.657-5.657a1.577,1.577,0,0,0,0-2.231l-5.657-5.657a1.578,1.578,0,0,0-2.693,1.115Z" transform="translate(0 -10.26)" fill="#fff"></path></svg>`
+    $(".form__control-submit span.icon").append(`${contactFormBtn}`)
 
 })
